@@ -106,7 +106,7 @@
   #};
   stylix =
   {
-    enable = true;
+    enable = false;
     image = ./wallpaper.jpg;
   };
   # Install firefox.
