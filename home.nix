@@ -57,6 +57,9 @@
     rofi-wayland
     kitty
     alejandra
+    wireguard-tools
+    wireguard-ui
+    wgnord
   ];
 
   imports = [
@@ -112,8 +115,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    #".config/hypr/hyperland.conf".source = ./config/hypr/hyperland.conf;
-    #".config/hypr/start.sh".source = ./config/hypr/start.sh;
+    ".config/hypr/hyperland.conf".source = ./config/hypr/hyprland.conf;
+    ".config/hypr/start.sh".source = ./config/hypr/start.sh;
   };
 
   # Home Manager can also manage your environment variables through

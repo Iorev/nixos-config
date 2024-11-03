@@ -151,6 +151,8 @@
     zoxide
     zathura
     htop-vim
+    jq
+    openresolv
   ];
   programs.steam.enable = true;
 
