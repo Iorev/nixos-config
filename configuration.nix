@@ -69,11 +69,14 @@
   # Configure console keymap
   console.keyMap = "it2";
 
-  # Enable CUPS to print documents.
+  # Disable CUPS to print documents.
   services.printing.enable = false;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio = {
+    enable = false;
+    package = pkgs.pulseaudioFull;
+  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

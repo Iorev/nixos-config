@@ -117,6 +117,12 @@
   home.file = {
     ".config/hypr/hyperland.conf".source = ./config/hypr/hyprland.conf;
     ".config/hypr/start.sh".source = ./config/hypr/start.sh;
+    ".config/waybar/config".source = ./config/waybar/config;
+    ".config/waybar/style.css".source = ./config/waybar/style.css;
+    ".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
+    ".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
+    ".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
+    ".config/waybar/modules/ModulesWorkspaces".source = ./config/waybar/modules/ModulesWorkspaces;
   };
 
   # Home Manager can also manage your environment variables through
