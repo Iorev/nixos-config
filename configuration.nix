@@ -110,10 +110,6 @@
   #  enable = true;
   #  user = "lorev";
   #};
-  stylix = {
-    enable = false;
-    image = ./wallpaper.jpg;
-  };
   # Install firefox.
   programs.firefox.enable = true;
 

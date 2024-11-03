@@ -54,11 +54,13 @@
     wireguard-ui
     wgnord
     btop
-  ];
+    base16-schemes
+  ]; #END OF PACKAGES
 
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/template/gruvbox-dark-medium.yaml";
-    image = ./gruvbox-nix.jpg;
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    image = ./gruvbox-nix.png;
   };
   programs.git = {
     enable = true;
