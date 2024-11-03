@@ -58,7 +58,7 @@
   ]; #END OF PACKAGES
 
   stylix = {
-    enable = true;
+    enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     image = ./gruvbox-nix.png;
   };
