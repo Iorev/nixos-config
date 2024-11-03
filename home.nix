@@ -9,13 +9,6 @@
   # manage.
   home.username = "lorev";
   home.homeDirectory = "/home/lorev";
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -62,26 +55,11 @@
     wgnord
   ];
 
-  imports = [
-    ./nixvim.nix
-  ];
 
-  gtk = {
-    enable = false;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-    };
-    theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
-    };
-    iconTheme = {
-      package = pkgs.gruvbox-dark-gtk;
-      name = "GruvboxPlus";
-    };
+  stylix = {
+    base16Scheme = "${pkgs.base16-schemes}/share/template/gruvbox-dark-medium.yaml";
+    image = ./gruvbox-nix.jpg;
   };
-
   programs.git = {
     enable = true;
     userName = "Utisse";
@@ -126,26 +104,20 @@
     ".config/waybar/modules/ModulesWorkspaces".source = ./config/waybar/modules/ModulesWorkspaces;
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/lorev/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
+  imports = [
+    ./nixvim.nix
+  ];
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

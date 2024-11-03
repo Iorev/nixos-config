@@ -17,6 +17,7 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = {
@@ -44,6 +45,7 @@
         inherit pkgs;
         modules = [
           nixvim.homeManagerModules.nixvim
+          stylix.homeManagerModules.stylix
           ./home.nix
         ];
       };
