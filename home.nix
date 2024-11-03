@@ -53,8 +53,8 @@
     wireguard-tools
     wireguard-ui
     wgnord
+    btop
   ];
-
 
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/template/gruvbox-dark-medium.yaml";
