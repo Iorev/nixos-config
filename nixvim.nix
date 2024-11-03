@@ -1,5 +1,8 @@
-{config, pkgs, ...}:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -8,21 +11,20 @@
       updatetime = 100;
       number = true; # show line numbers
       relativenumber = true; # relative line numbers
-      shiftwidth = 2; #tab width 
+      shiftwidth = 2; #tab width
       clipboard = "unnamedplus";
       expandtab = true;
       smartindent = true;
       swapfile = false;
       undofile = true;
       conceallevel = 2;
-
     };
     colorschemes.gruvbox.enable = true;
     # PLUGINS
     plugins = {
-#LUALINE
+      #LUALINE
       lualine.enable = true;
-#LSP
+      #LSP
       lsp = {
         enable = true;
         servers = {
@@ -32,28 +34,28 @@
           nil_ls.enable = true;
         };
       };
-#CMP
+      #CMP
       cmp = {
         enable = true;
         autoEnableSources = true;
       };
-#LUASNIP
+      #LUASNIP
       luasnip = {
         enable = true;
-        fromLua = [ {} {paths = ./config/nvim/LuaSnip;}];
+        fromLua = [{} {paths = ./config/nvim/LuaSnip;}];
         settings = {
           enable_autosnippets = true;
           store_selection_keys = "<Tab>";
         };
       };
-#VIMTEX
+      #VIMTEX
       vimtex = {
         enable = true;
         settings = {
           view_method = "zathura";
         };
-        };
-#TELESCOPE
+      };
+      #TELESCOPE
       telescope = {
         enable = true;
       };
@@ -61,8 +63,8 @@
         enable = true;
         settings = {
           completion = {
-          min_chars = 2;
-          nvim_cmp = true;
+            min_chars = 2;
+            nvim_cmp = true;
           };
           new_notes_location = "current_dir";
           workspaces = [
@@ -71,7 +73,7 @@
               path = "~/Dropbox/obsidian/zettelkasten";
             }
           ];
-           templates = {
+          templates = {
             folder = "templates";
             date_format = "%Y-%m-%d";
             time_format = "%H:%M";
@@ -79,69 +81,69 @@
           };
         };
       };
-#OIL
+      #OIL
       oil.enable = true;
-#TREESITTER
+      #TREESITTER
       treesitter.enable = true;
-#WEB-DEVICONS
+      #WEB-DEVICONS
       web-devicons.enable = true;
     }; #end of plugins
 
     globals.mapleader = " ";
     keymaps = [
       {
-	key = "ò";
-	action = ":";
+        key = "ò";
+        action = ":";
       }
       {
-	mode = "n";
-	key = "<leader>pv";
-	action = "<cmd>Ex<CR>";
+        mode = "n";
+        key = "<leader>pv";
+        action = "<cmd>Ex<CR>";
       }
       {
-	mode = "n";
-	key = "n";
-	action = "nzzzv";
+        mode = "n";
+        key = "n";
+        action = "nzzzv";
       }
       {
-	mode = "n";
-	key = "N";
-	action = "Nzzzv";
+        mode = "n";
+        key = "N";
+        action = "Nzzzv";
       }
       {
-	mode = "n";
-	key = "<C-u>";
-	action = "<C-u>zz";
+        mode = "n";
+        key = "<C-u>";
+        action = "<C-u>zz";
       }
       {
-	mode = "n";
-	key = "<C-d>";
-	action = "<C-d>zz";
+        mode = "n";
+        key = "<C-d>";
+        action = "<C-d>zz";
       }
       {
-	mode = "v";
-	key = "J";
-	action = ":m '>+1<CR>gv=gv";
+        mode = "v";
+        key = "J";
+        action = ":m '>+1<CR>gv=gv";
       }
       {
-	mode = "v";
-	key = "K";
-	action = ":m '<-2<CR>gv=gv";
+        mode = "v";
+        key = "K";
+        action = ":m '<-2<CR>gv=gv";
       }
       {
         action = "<cmd>Telescope live_grep<CR>";
         key = "<leader>g";
       }
-    ];#end of remap
+    ]; #end of remap
     extraConfigVim = ''
-        imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-        smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-        imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-        smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-        nmap <leader>c <Plug>(vimtex-compile)
-        nmap <leader>ii <Plug>(vimtex-toc-toggle)
-        
-      '';
+      imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+      smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+      imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+      smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+      nmap <leader>c <Plug>(vimtex-compile)
+      nmap <leader>ii <Plug>(vimtex-toc-toggle)
+
+    '';
     extraConfigLua = ''
       local tlsc = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', tlsc.find_files, {})
@@ -151,5 +153,5 @@
           tlsc.grep_string({ search = vim.fn.input("Grep > ")})
         end)
     '';
-  };  
+  };
 }

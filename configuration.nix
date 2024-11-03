@@ -1,13 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -23,14 +26,14 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Enable network manager applet
+  programs.nm-applet.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
   ];
-  # Enable network manager applet
-  programs.nm-applet.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -55,8 +58,8 @@
 
   # Enable the GNOME desktop environment
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable= true;
-	
+  services.xserver.desktopManager.gnome.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";
@@ -92,9 +95,9 @@
   users.users.lorev = {
     isNormalUser = true;
     description = "Lorenzo Pasqui";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
   services.flatpak.enable = true;
@@ -104,8 +107,7 @@
   #  enable = true;
   #  user = "lorev";
   #};
-  stylix =
-  {
+  stylix = {
     enable = false;
     image = ./wallpaper.jpg;
   };
@@ -128,8 +130,7 @@
     nvidia.modesetting.enable = true;
   };
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -137,27 +138,26 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim
-     git
-     dunst
-     libnotify
-     swww
-     networkmanagerapplet
-     brightnessctl
-     pavucontrol
-     waybar
-     jdk
-     zoxide
-     zathura
-     htop-vim
+    vim
+    git
+    dunst
+    libnotify
+    swww
+    networkmanagerapplet
+    brightnessctl
+    pavucontrol
+    waybar
+    jdk
+    zoxide
+    zathura
+    htop-vim
   ];
   programs.steam.enable = true;
 
-  
-  fonts.packages = with pkgs;[
+  fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "Mononoki" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -186,13 +186,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-
-
-
   #home-manager.users.lorev = { pkgs, ... }: {
-	
-#	home.packages = with pkgs; [];
-#	home.stateVersion = "24.05";
 
- ## };
+  #	home.packages = with pkgs; [];
+  #	home.stateVersion = "24.05";
+
+  ## };
 }

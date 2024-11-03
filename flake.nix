@@ -26,28 +26,26 @@
     nixvim,
     stylix,
     ...
-  }:
-  let
+  }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-  in
-  {
+  in {
     nixosConfigurations = {
       XPSnixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
+        specialArgs = {inherit system;};
         modules = [
           ./configuration.nix
           stylix.nixosModules.stylix
-          ];
-        };
+        ];
       };
+    };
     homeConfigurations = {
-    lorev = home-manager.lib.homeManagerConfiguration {
+      lorev = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ 
-	  nixvim.homeManagerModules.nixvim
-	  ./home.nix 
-	  ];
+        modules = [
+          nixvim.homeManagerModules.nixvim
+          ./home.nix
+        ];
       };
     };
   };
