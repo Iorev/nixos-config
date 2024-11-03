@@ -119,6 +119,7 @@
     ".config/hypr/start.sh".source = ./config/hypr/start.sh;
     ".config/waybar/config".source = ./config/waybar/config;
     ".config/waybar/style.css".source = ./config/waybar/style.css;
+    ".config/waybar/watch_course.sh".source = ./config/waybar/watch_course.sh;
     ".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
     ".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
     ".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
