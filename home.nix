@@ -55,6 +55,9 @@
     wgnord
     btop
     base16-schemes
+    onedrive
+    gparted
+    stylua
   ]; #END OF PACKAGES
 
   stylix = {
@@ -73,6 +76,7 @@
       push = {autoSetupRemote = true;};
     };
   };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;

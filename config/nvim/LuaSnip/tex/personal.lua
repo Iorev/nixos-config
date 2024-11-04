@@ -44,7 +44,6 @@ tex_utils.in_tikz = function()  -- TikZ picture environment detection
 end
 
 return {
-	
     	s({trig="sii", snippetType="autosnippet"},
       	fmta(
         	[[\si{<>}]],
