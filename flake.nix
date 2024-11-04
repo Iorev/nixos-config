@@ -13,34 +13,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    nixvim,
-    stylix,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       XPSnixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit system;};
+        specialArgs = {inherit system inputs;};
         modules = [
           ./configuration.nix
-          stylix.nixosModules.stylix
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
     homeConfigurations = {
-      lorev = home-manager.lib.homeManagerConfiguration {
+      lorev = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          stylix.homeManagerModules.stylix
-          nixvim.homeManagerModules.nixvim
+          inputs.stylix.homeManagerModules.stylix
+          inputs.nixvim.homeManagerModules.nixvim
           ./home.nix
         ];
       };

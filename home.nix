@@ -95,8 +95,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr/hyperland.conf".source = ./config/hypr/hyprland.conf;
-    ".config/hypr/start.sh".source = ./config/hypr/start.sh;
+    #".config/hypr/hyprland.conf".source = ./config/hypr/hyprland.conf;
+    #".config/hypr/start.sh".source = ./config/hypr/start.sh;
     ".config/waybar/config".source = ./config/waybar/config;
     ".config/waybar/style.css".source = ./config/waybar/style.css;
     ".config/waybar/watch_course.sh".source = ./config/waybar/watch_course.sh;
@@ -112,6 +112,7 @@
 
   imports = [
     ./nixvim.nix
+    ./hyprland.nix
   ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
