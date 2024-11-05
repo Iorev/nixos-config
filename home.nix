@@ -10,6 +10,36 @@
   home.username = "lorev";
   home.homeDirectory = "/home/lorev";
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    image = ./gruvbox-nix.png;
+    opacity = {
+      applications = 0.1;
+      desktop = 0.75;
+      popups = 0.85;
+      terminal = 0.85;
+    };
+
+    cursor = {
+      package = pkgs.capitaine-cursors-themed;
+      name = "Capitaine Cursors (Gruvbox)";
+    };
+    fonts = {
+      serif = {
+        package = pkgs.fira-sans;
+        name = "FiraSans";
+      };
+      sansSerif = {
+        package = pkgs.fira-sans;
+        name = "FiraSans";
+      };
+      monospace = {
+        package = pkgs.fira-mono;
+        name = "Fira Code nerd font mono";
+      };
+    };
+  };
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -56,33 +86,9 @@
     btop
     base16-schemes
     onedrive
-    gparted
-    stylua
+    vimiv-qt
   ]; #END OF PACKAGES
 
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = ./gruvbox-nix.png;
-    cursor = {
-      package = pkgs.capitaine-cursors-themed;
-      name = "Capitaine Cursors (Gruvbox)";
-    };
-    fonts = {
-      serif = {
-        package = pkgs.fira-sans;
-        name = "FiraSans";
-      };
-      sansSerif = {
-        package = pkgs.fira-sans;
-        name = "FiraSans";
-      };
-      monospace = {
-        package = pkgs.fira-mono;
-        name = "Fira Code nerd font mono";
-      };
-    };
-  };
   programs.eza = {
     enable = true;
     icons = "auto";

@@ -32,10 +32,22 @@
 
       bookmarks = [
         {
-          name = "";
-          tags = ["wiki"];
-          keyword = "wiki";
-          url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+          name = "YT music";
+          tags = ["music"];
+          keyword = "music";
+          url = "https://music.youtube.com";
+        }
+        {
+          name = "Monthly Planner";
+          tags = ["uni"];
+          keyword = "uni goodnotes";
+          url = "https://web.goodnotes.com/s/MUKxcGLiUj0TJ4Miu0cgAU#page-1";
+        }
+        {
+          name = "GitLab AER";
+          tags = ["uni"];
+          keyword = "uni gitlab";
+          url = "https://gitlab.com/polinetwork/AES";
         }
       ];
 
@@ -44,9 +56,27 @@
         "browser.download.panel.shown" = true;
         "identity.fxaccounts" = {
           enabled = true;
-          account.device.name = "lorev nixOS";
+          "account.device.name" = "lorev nixOS";
         };
         "signon.rememberSignons" = false;
+        "browser.translation.enabled " = false;
+        "findbar.highlightAll" = true;
+        browser = {
+          warnOnClose = true;
+          closeWindowWithLastTab = false;
+          link.open_newwindow = {
+            restriction = 0; # 0 = apply the setting under "browser.link.open_newwindow" to ALL new windows (even script windows with features
+            override.external = 3; # 3 = open external links (from outside Firefox) in a new tab
+          };
+          newtabpage.enabled = false;
+          vpn_promo.enabled = false;
+        };
+        extensions = {
+          getAddons.showPane = false;
+          pocket.enabled = false;
+          webextensions.restrictedDomains = " ";
+        };
+        privacy.resistFingerprinting.block_modAddonManager = true;
       };
 
       userChrome = ''
