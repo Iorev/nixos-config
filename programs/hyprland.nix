@@ -18,6 +18,7 @@
         "nm-applet --indicator"
         "waybar"
         "dunst"
+        "gammastep-indicator -l 45.068371:7.683070"
       ];
       dwindle = {
         pseudotile = true;
@@ -25,8 +26,8 @@
       };
       decoration = {
         rounding = 10;
-        #"active_opacity" = 0.85;
-        #"inactive_opacity" = 0.65;
+        "active_opacity" = 0.85;
+        "inactive_opacity" = 0.75;
         blur = {
           enabled = true;
           size = 8;

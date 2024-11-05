@@ -162,7 +162,7 @@
             }
           ];
           templates = {
-            folder = "templates";
+            folder = "5 - templates";
             date_format = "%Y-%m-%d";
             time_format = "%H:%M";
             substitutions = {};
@@ -175,6 +175,11 @@
       treesitter = {
         enable = true;
         nixvimInjections = true;
+        languageRegister = {
+          markdown = [
+            "telekasten"
+          ];
+        };
         settings = {
           highlight.enable = true;
           indent.enable = true;
@@ -190,6 +195,52 @@
       };
       #WEB-DEVICONS
       web-devicons.enable = true;
+      telekasten = {
+        enable = true;
+        settings.home = {
+          __raw = "vim.fn.expand(\"~/zettelkasten\")";
+        };
+      };
+      render-markdown = {
+        enable = true;
+        settings = {
+          bullet = {
+            icons = [
+              "* "
+            ];
+            right_pad = 1;
+          };
+          code = {
+            above = " ";
+            below = " ";
+            border = "thick";
+            language_pad = 2;
+            left_pad = 2;
+            position = "right";
+            right_pad = 2;
+            sign = false;
+            width = "block";
+          };
+          heading = {
+            border = true;
+            icons = [
+              "1 "
+              "2 "
+              "3 "
+              "4 "
+              "5 "
+              "6 "
+            ];
+            position = "inline";
+            sign = false;
+            width = "full";
+          };
+          render_modes = true;
+          signs = {
+            enabled = false;
+          };
+        };
+      };
     }; #end of plugins
 
     globals.mapleader = " ";
@@ -197,11 +248,6 @@
       {
         key = "ò";
         action = ":";
-      }
-      {
-        mode = "n";
-        key = "<leader>pv";
-        action = "<cmd>Ex<CR>";
       }
       {
         mode = "n";
@@ -248,13 +294,29 @@
 
     '';
     extraConfigLua = ''
-      local tlsc = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', tlsc.find_files, {})
-        vim.keymap.set('n', '<C-p>', tlsc.git_files, {})
+            local tlsc = require('telescope.builtin')
+              vim.keymap.set('n', '<leader>pf', tlsc.find_files, {})
+              vim.keymap.set('n', '<C-p>', tlsc.git_files, {})
 
-        vim.keymap.set('n', '<leader>ps', function()
-          tlsc.grep_string({ search = vim.fn.input("Grep > ")})
-        end)
+              vim.keymap.set('n', '<leader>ps', function()
+                tlsc.grep_string({ search = vim.fn.input("Grep > ")})
+              end)
+            -- Launch panel if nothing is typed after <leader>z
+      vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+
+      -- Most used functions
+      vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+      vim.keymap.set("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>")
+      vim.keymap.set("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
+      vim.keymap.set("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
+      vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+      vim.keymap.set("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
+      vim.keymap.set("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
+      vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
+      vim.keymap.set("n", "<leader>zx", "<cmd>Telekasten toggle_todo<CR>")
+
+      -- Call insert link automatically when we start typing a link
+      vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
     '';
   };
 }

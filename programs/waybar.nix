@@ -5,35 +5,6 @@
 }: {
   programs.waybar = {
     enable = true;
-    #            @define-color critical #cc241d; /* critical color */
-    # @define-color warning #eebd35;  /* warning color */
-    # @define-color fgcolor #e7d7ad;  /* foreground color */
-    # @define-color bgcolor #32302f;  /* background color */
-    # @define-color bgcolor #665c54;  /* background color */
-    # @define-color alert   #d65d0e;
-
-    # @define-color accent1 #8ec07c; /* light blue*/
-    # @define-color accent2 #83a598; /* green*/
-    # @define-color accent3 #d65d0e; /* orange*/
-    # @define-color accent4 #b16286; /* purple*/
-    # @define-color accent5 #458588; /* blue */
-    # @define-color accent6 #7fa2ac; /* gray blue*/
-
-    # @define-color accent2 #${config.stylix.base16Scheme.base01}; /* green*/
-    # @define-color accent3 #${config.stylix.base16Scheme.base02}; /* orange*/
-    # @define-color accent4 #${config.stylix.base16Scheme.base03}; /* purple*/
-    # @define-color accent5 #${config.stylix.base16Scheme.base04}; /* blue */
-    # @define-color accent6 #${config.stylix.base16Scheme.base05}; /* gray blue*/
-
-    #* {
-    #font-family: "Firacode Nerd Font";
-    #font-weight: bold;
-    #min-height: 0;
-    #/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-    #font-size: 97%;
-    #font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-    #}
-
     style = ''
       @define-color fgcolor #${config.lib.stylix.colors.base05};  /* foreground color */
       @define-color bgcolor #${config.lib.stylix.colors.base00};  /* background color */
@@ -362,7 +333,7 @@
         gtk-layer-shell = true;
         margin-left = 6;
         margin-right = 6;
-        margin-top = 2;
+        margin-top = 1;
 
         modules-left = [
           "idle_inhibitor"
@@ -415,13 +386,15 @@
             "title<.*reddit.*>" = " ";
             "title<.*Picture-in-Picture.*>" = " ";
             "class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser>" = " ";
-            "class<kitty|konsole>" = " ";
+            "class<kitty|konsole>" = " ";
             "class<kitty-dropterm>" = " ";
             "class<Chromium|Thorium>" = " ";
             "class<org.telegram.desktop|io.github.tdesktop_x64.TDesktop>" = " ";
             "class<[Ss]potify>" = " ";
             "class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>" = "󰨞 ";
             "class<thunar>" = "󰝰 ";
+            "class<org.pwmt.zathura>" = " ";
+            "class<com.stremio.stremio>" = " ";
             "class<[Tt]hunderbird|[Tt]hunderbird-esr>" = " ";
             "class<discord|[Ww]ebcord|Vesktop>" = " ";
             "class<subl>" = "󰅳 ";

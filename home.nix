@@ -86,7 +86,8 @@
     btop
     base16-schemes
     onedrive
-    vimiv-qt
+    viu
+    gammastep
   ]; #END OF PACKAGES
 
   programs.eza = {
