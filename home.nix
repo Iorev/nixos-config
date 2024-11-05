@@ -61,8 +61,8 @@
   ]; #END OF PACKAGES
 
   stylix = {
-    enable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/vulcan.yaml";
     image = ./gruvbox-nix.png;
   };
   programs.git = {
@@ -101,13 +101,13 @@
   home.file = {
     #".config/hypr/hyprland.conf".source = ./config/hypr/hyprland.conf;
     #".config/hypr/start.sh".source = ./config/hypr/start.sh;
-    ".config/waybar/config".source = ./config/waybar/config;
-    ".config/waybar/style.css".source = ./config/waybar/style.css;
+    #".config/waybar/config".source = ./config/waybar/config;
+    #".config/waybar/style.css".source = ./config/waybar/style.css;
     ".config/waybar/watch_course.sh".source = ./config/waybar/watch_course.sh;
-    ".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
-    ".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
-    ".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
-    ".config/waybar/modules/ModulesWorkspaces".source = ./config/waybar/modules/ModulesWorkspaces;
+    #".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
+    #".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
+    #".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
+    #".config/waybar/modules/ModulesWorkspaces".source = ./config/waybar/modules/ModulesWorkspaces;
   };
 
   home.sessionVariables = {
@@ -117,6 +117,7 @@
   imports = [
     ./nixvim.nix
     ./hyprland.nix
+    ./waybar.nix
   ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

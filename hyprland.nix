@@ -2,14 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.swww}/bin/swww init &
-    nm-applet --indicator &
-    ${pkgs.waybar}/bin/waybar &
-    ${pkgs.dunst}/bin/dunst
-  '';
-in {
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -17,14 +10,22 @@ in {
         gaps_in = 2;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        #"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        #"col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
       };
-      exec-once = ''${startupScript}/bin/start '';
+      exec-once = [
+        "nm-applet --indicator"
+        "waybar"
+        "dunst"
+      ];
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
       decoration = {
         rounding = 10;
-        "active_opacity" = 0.75;
+        "active_opacity" = 0.85;
         "inactive_opacity" = 0.65;
         blur = {
           enabled = true;
@@ -127,6 +128,10 @@ in {
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
     };
   };
