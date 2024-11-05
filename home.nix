@@ -64,6 +64,29 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     image = ./gruvbox-nix.png;
+    cursor = {
+      package = pkgs.capitaine-cursors-themed;
+      name = "Capitaine Cursors (Gruvbox)";
+    };
+    fonts = {
+      serif = {
+        package = pkgs.fira-sans;
+        name = "FiraSans";
+      };
+      sansSerif = {
+        package = pkgs.fira-sans;
+        name = "FiraSans";
+      };
+      monospace = {
+        package = pkgs.fira-mono;
+        name = "Fira Code nerd font mono";
+      };
+    };
+  };
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+    git = true;
   };
   programs.git = {
     enable = true;
@@ -115,10 +138,14 @@
   };
 
   imports = [
-    ./nixvim.nix
-    ./hyprland.nix
-    ./waybar.nix
+    ./programs/nixvim.nix
+    ./programs/kitty.nix
+    ./programs/hyprland.nix
+    ./programs/waybar.nix
+    ./programs/zathura.nix
+    ./programs/firefox.nix
   ];
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
