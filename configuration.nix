@@ -98,10 +98,11 @@
   users.users.lorev = {
     isNormalUser = true;
     description = "Lorenzo Pasqui";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    hashedPassword = "$y$j9T$/Zd2ewjXuVjuKz3YzWA3L/$iUOruuv0a6FT1QjzY1ZhTI5OkBxX88ZHXdpAJ6.tBk4";
+    extraGroups = ["libvirtd" "networkmanager" "wheel"];
+    #packages = with pkgs; [
+    #  thunderbird
+    #];
   };
   services.flatpak.enable = true;
 
@@ -156,6 +157,7 @@
     openresolv
     nh
     nixd
+    qemu
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   programs.steam.enable = true;
@@ -166,6 +168,15 @@
     (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
   ];
 
+  virtualisation.libvirtd.enable = true;
+  virtualisation.vmVariant = {
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize = 2048; # Use 2048MiB memory.
+      cores = 3;
+      graphics = true;
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

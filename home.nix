@@ -13,7 +13,7 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = ./gruvbox-nix.png;
+    image = ./config/wallpaper/gruvbox-nix.png;
     opacity = {
       applications = 0.1;
       desktop = 0.75;
@@ -88,6 +88,7 @@
     onedrive
     viu
     gammastep
+    virt-manager
   ]; #END OF PACKAGES
 
   programs.eza = {
@@ -133,7 +134,11 @@
     #".config/hypr/start.sh".source = ./config/hypr/start.sh;
     #".config/waybar/config".source = ./config/waybar/config;
     #".config/waybar/style.css".source = ./config/waybar/style.css;
-    ".config/waybar/watch_course.sh".source = ./config/waybar/watch_course.sh;
+    ".config/waybar/watch_course.sh".text = ''cat /tmp/current_course'';
+    ".config/wallpaper/recolor_wallpaper.sh".text = ''
+      gm convert -background "#${config.lib.stylix.colors.base00}" -flatten nix-transp.png nix-colored.png
+    '';
+    ".config/wallpaper/nix-transp.png".source = ./config/wallpaper/nix-transp.png;
     #".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
     #".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
     #".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;

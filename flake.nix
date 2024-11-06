@@ -32,6 +32,12 @@
           inputs.stylix.nixosModules.stylix
         ];
       };
+      iso = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./isoimage/configuration.nix
+        ];
+      };
     };
     homeConfigurations = {
       lorev = inputs.home-manager.lib.homeManagerConfiguration {
