@@ -8,8 +8,8 @@
     settings = {
       general = {
         gaps_in = 2;
-        gaps_out = 10;
-        border_size = 2;
+        gaps_out = 5;
+        border_size = 1;
         #"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         #"col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
@@ -20,12 +20,16 @@
         "dunst"
         "gammastep-indicator -l 45.068371:7.683070"
       ];
+      monitor = [
+        "eDP-1,preferred,auto,1.25"
+        "DP-2,preferred,auto-right,1.6"
+      ];
       dwindle = {
         pseudotile = true;
         preserve_split = true;
       };
       decoration = {
-        rounding = 10;
+        rounding = 5;
         "active_opacity" = 0.85;
         "inactive_opacity" = 0.75;
         blur = {
@@ -55,9 +59,16 @@
       gestures = {
         workspace_swipe = true;
       };
+      xwayland = {
+        force_zero_scaling = true;
+      };
+      env = [
+        "GTK_SCALE,2"
+        "XCURSOR_SIZE,32"
+      ];
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$menu" = "rofi -show drun";
+      "$menu" = "tofi-drun";
       "$browser" = "firefox";
       bind = [
         "$mainMod, Return, exec, $terminal"

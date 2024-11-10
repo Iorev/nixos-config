@@ -7,6 +7,8 @@
     enable = true;
     defaultEditor = true;
     vimdiffAlias = true;
+    vimAlias = true;
+    viAlias = true;
     opts = {
       updatetime = 100;
       number = true; # show line numbers
@@ -19,7 +21,7 @@
       undofile = true;
       conceallevel = 2;
     };
-    colorschemes.gruvbox.enable = true;
+    #colorschemes.gruvbox.enable = true;
     # PLUGINS
     plugins = {
       #LUALINE
@@ -44,11 +46,14 @@
                 command = ["alejandra"];
               };
               options = {
+                nixvim = {
+                  expr = ''(builtins.getFlake "/home/lorev/nixos-config").packages.x86_64-linux.neovimNixvim.options'';
+                };
                 nixos = {
-                  expr = "'(builtins.getFlake \"/home/lorev/nixos-config\").nixosConfigurations.XPSnixos.options'";
+                  expr = ''(builtins.getFlake "/home/lorev/nixos-config").nixosConfigurations.XPSnixos.options'';
                 };
                 home_manager = {
-                  expr = "'(builtins.getFlake \"/home/lorev/nixos-config\").homeConfigurations.lorev.options'";
+                  expr = ''(builtins.getFlake "/home/lorev/nixos-config").homeConfigurations.lorev.options'';
                 };
               };
             };
@@ -169,8 +174,57 @@
           };
         };
       };
+      #HELPVIEW
+      helpview.enable = true;
       #OIL
-      oil.enable = true;
+      oil = {
+        enable = true;
+        settings = {
+          columns = [
+            "icon"
+          ];
+          keymaps = {
+            "<C-c>" = false;
+            "<C-l>" = false;
+            "<C-r>" = "actions.refresh";
+            "<leader>qq" = "actions.close";
+            "y." = "actions.copy_entry_path";
+          };
+          skip_confirm_for_simple_edits = true;
+          view_options = {
+            show_hidden = true;
+          };
+          win_options = {
+            concealcursor = "ncv";
+            conceallevel = 3;
+            cursorcolumn = false;
+            foldcolumn = "0";
+            list = false;
+            signcolumn = "no";
+            spell = false;
+            wrap = false;
+          };
+        };
+      };
+      #AUTOCLOSE
+      autoclose = {
+        enable = true;
+        keys = {
+          "`" = {
+            escape = false;
+            close = false;
+            pair = "``";
+          };
+          "'" = {
+            escape = false;
+            close = false;
+            pair = "''";
+          };
+        };
+        options = {
+          autoIndent = true;
+        };
+      };
       #TREESITTER
       treesitter = {
         enable = true;
@@ -183,6 +237,29 @@
         settings = {
           highlight.enable = true;
           indent.enable = true;
+          auto_install = true;
+          incremental_selection = {
+            enable = true;
+            keymaps = {
+              init_selection = false;
+              node_decremental = "grm";
+              node_incremental = "grn";
+              scope_incremental = "grc";
+            };
+          };
+        };
+      };
+      treesitter-context = {
+        enable = true;
+        settings = {
+          line_numbers = true;
+          max_lines = 0;
+          min_window_height = 0;
+          mode = "cursor";
+          multiline_threshold = 0;
+          separator = "-";
+          trim_scope = "inner";
+          zindex = 10;
         };
       };
       treesitter-refactor = {
@@ -195,12 +272,14 @@
       };
       #WEB-DEVICONS
       web-devicons.enable = true;
+      #TELECASTEN
       telekasten = {
         enable = true;
         settings.home = {
           __raw = "vim.fn.expand(\"~/zettelkasten\")";
         };
       };
+      #RENDER-MARKDOWN
       render-markdown = {
         enable = true;
         settings = {
@@ -239,6 +318,15 @@
           signs = {
             enabled = false;
           };
+        };
+      };
+      #NVIM-UFO
+      nvim-ufo = {
+        enable = true;
+        settings = {
+          provider_selector = ''
+            treesitter
+          '';
         };
       };
     }; #end of plugins
@@ -291,7 +379,6 @@
       smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
       nmap <leader>c <Plug>(vimtex-compile)
       nmap <leader>ii <Plug>(vimtex-toc-toggle)
-
     '';
     extraConfigLua = ''
             local tlsc = require('telescope.builtin')

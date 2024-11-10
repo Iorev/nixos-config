@@ -12,13 +12,14 @@
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = ./config/wallpaper/gruvbox-nix.png;
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = ./config/wallpaper/nix-colored.png;
     opacity = {
       applications = 0.1;
       desktop = 0.75;
       popups = 0.85;
-      terminal = 0.85;
+      terminal = 0.75;
     };
 
     cursor = {
@@ -78,7 +79,7 @@
     blueman
     stremio
     rofi-wayland
-    kitty
+    kitty 
     alejandra
     wireguard-tools
     wireguard-ui
@@ -87,8 +88,11 @@
     base16-schemes
     onedrive
     viu
+    vimiv-qt
     gammastep
     virt-manager
+    tut
+    emacs-nox
   ]; #END OF PACKAGES
 
   programs.eza = {
@@ -124,7 +128,8 @@
       ls = "ls --color=auto";
       ll = "ls -la";
       shtdwn = "shutdown now";
-      ell = "eza -ls --icons";
+      ell = "eza -ls";
+      ett = "eza --tree";
     };
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -134,11 +139,14 @@
     #".config/hypr/start.sh".source = ./config/hypr/start.sh;
     #".config/waybar/config".source = ./config/waybar/config;
     #".config/waybar/style.css".source = ./config/waybar/style.css;
-    ".config/waybar/watch_course.sh".text = ''cat /tmp/current_course'';
+    ".config/waybar/watch_course.sh".text = ''
+      #!/bin/bash
+      cat /tmp/current_course'';
     ".config/wallpaper/recolor_wallpaper.sh".text = ''
-      gm convert -background "#${config.lib.stylix.colors.base00}" -flatten nix-transp.png nix-colored.png
+      gm convert -background "#${config.lib.stylix.colors.base00}" -flatten nix-transp.png /home/lorev/nixos-config/config/wallpaper/nix-colored.png
     '';
     ".config/wallpaper/nix-transp.png".source = ./config/wallpaper/nix-transp.png;
+    #".config/emacs/-transp.png".source = ./config/wallpaper/nix-transp.png;
     #".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
     #".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
     #".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
