@@ -16,7 +16,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./config/wallpaper/nix-colored.png;
     opacity = {
-      applications = 0.1;
+      applications = 0.1; #This doesn't seem to work
       desktop = 0.75;
       popups = 0.85;
       terminal = 0.75;
@@ -64,8 +64,6 @@
     slurp
     zenity
     wl-clipboard
-    android-tools
-    sdkmanager
     unzip
     telegram-desktop
     headsetcontrol
@@ -79,7 +77,6 @@
     stremio
     kitty
     alejandra
-    btop
     base16-schemes
     onedrive
     viu
@@ -89,6 +86,7 @@
     tut
   ]; #END OF PACKAGES
 
+  programs.btop.enable = true;
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
