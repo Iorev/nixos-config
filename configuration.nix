@@ -118,9 +118,10 @@
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
   environment.sessionVariables = {
+    # Wayland stuff
     WLR_NO_HARDWARE_CURSORS = "1";
-
     NIXOS_OZONE_WL = "1";
+    #my sessionVariables
     EDITOR = "nvim";
     FLAKE = "/home/lorev/nixos-config";
   };
