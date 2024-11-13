@@ -33,6 +33,12 @@
           ts_ls.enable = true;
           lua_ls.enable = true;
           texlab.enable = true;
+          sourcekit.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installRustc = true;
+            installCargo = true;
+          };
           nixd = {
             enable = true;
             settings = {
@@ -84,6 +90,7 @@
           formatting = {fields = ["kind" "abbr" "menu"];};
           sources = [
             {name = "nvim_lsp";}
+            #{name = "neorg";}
             {
               name = "buffer"; # text within current buffer
               #option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
@@ -153,7 +160,7 @@
       };
       #OBSIDIAN
       obsidian = {
-        enable = true;
+        enable = false;
         settings = {
           completion = {
             min_chars = 2;
@@ -189,6 +196,13 @@
             "<C-r>" = "actions.refresh";
             "<leader>qq" = "actions.close";
             "y." = "actions.copy_entry_path";
+            "g?" = "actions.show_help";
+            "<CR>" = "actions.select";
+            "-" = "actions.parent";
+            "gs" = "actions.change_sort";
+            "gx" = "actions.open_external";
+            "g." = "actions.toggle_hidden";
+            "g\\" = "actions.toggle_trash";
           };
           skip_confirm_for_simple_edits = true;
           view_options = {
@@ -285,7 +299,7 @@
         settings = {
           bullet = {
             icons = [
-              "* "
+              " "
             ];
             right_pad = 1;
           };
@@ -322,11 +336,31 @@
       };
       #NVIM-UFO
       nvim-ufo = {
-        enable = true;
+        enable = false;
         settings = {
           provider_selector = ''
             treesitter
           '';
+        };
+      };
+      image.enable = true;
+      neorg = {
+        enable = true;
+        modules = {
+          "core.defaults" = {__empty = null;};
+          "core.summary" = {__empty = null;};
+          #"core.completion" = {engine = "[nvim-cmp]";};
+          "core.concealer" = {__empty = null;};
+          "core.latex.renderer" = {__empty = null;};
+          "core.dirman" = {
+            config = {
+              workspaces = {
+                notes = "~/notes/";
+                current_course = "~/current_course/neorg_notes/";
+              };
+              default_workspace = "current_course";
+            };
+          };
         };
       };
     }; #end of plugins
@@ -373,6 +407,7 @@
       }
     ]; #end of remap
     extraConfigVim = ''
+      let maplocalleader = ","
       imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
       smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
       imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
@@ -383,6 +418,7 @@
     extraConfigLua = ''
             local tlsc = require('telescope.builtin')
               vim.keymap.set('n', '<leader>pf', tlsc.find_files, {})
+              vim.keymap.set('n', '<leader>fb', tlsc.buffers, {})
               vim.keymap.set('n', '<C-p>', tlsc.git_files, {})
 
               vim.keymap.set('n', '<leader>ps', function()
@@ -404,6 +440,7 @@
 
       -- Call insert link automatically when we start typing a link
       vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
+      vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
     '';
   };
 }

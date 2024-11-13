@@ -55,6 +55,7 @@
 
       input = {
         kb_layout = "it";
+        kb_options = "caps:swapescape";
       };
       gestures = {
         workspace_swipe = true;
@@ -68,7 +69,7 @@
       ];
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$menu" = "tofi-drun";
+      "$menu" = "rofi -show drun";
       "$browser" = "firefox";
       bind = [
         "$mainMod, Return, exec, $terminal"

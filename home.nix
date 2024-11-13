@@ -64,7 +64,6 @@
     slurp
     zenity
     wl-clipboard
-    blender
     android-tools
     sdkmanager
     unzip
@@ -78,12 +77,8 @@
     ripgrep
     blueman
     stremio
-    rofi-wayland
-    kitty 
+    kitty
     alejandra
-    wireguard-tools
-    wireguard-ui
-    wgnord
     btop
     base16-schemes
     onedrive
@@ -92,9 +87,13 @@
     gammastep
     virt-manager
     tut
-    emacs-nox
   ]; #END OF PACKAGES
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
   programs.eza = {
     enable = true;
     icons = "auto";
@@ -128,17 +127,13 @@
       ls = "ls --color=auto";
       ll = "ls -la";
       shtdwn = "shutdown now";
-      ell = "eza -ls";
+      ell = "eza -la";
       ett = "eza --tree";
     };
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    #".config/hypr/hyprland.conf".source = ./config/hypr/hyprland.conf;
-    #".config/hypr/start.sh".source = ./config/hypr/start.sh;
-    #".config/waybar/config".source = ./config/waybar/config;
-    #".config/waybar/style.css".source = ./config/waybar/style.css;
     ".config/waybar/watch_course.sh".text = ''
       #!/bin/bash
       cat /tmp/current_course'';
@@ -146,11 +141,7 @@
       gm convert -background "#${config.lib.stylix.colors.base00}" -flatten nix-transp.png /home/lorev/nixos-config/config/wallpaper/nix-colored.png
     '';
     ".config/wallpaper/nix-transp.png".source = ./config/wallpaper/nix-transp.png;
-    #".config/emacs/-transp.png".source = ./config/wallpaper/nix-transp.png;
-    #".config/waybar/modules/Modules".source = ./config/waybar/modules/Modules;
-    #".config/waybar/modules/ModulesCustom".source = ./config/waybar/modules/ModulesCustom;
-    #".config/waybar/modules/ModulesGroups".source = ./config/waybar/modules/ModulesGroups;
-    #".config/waybar/modules/ModulesWorkspaces".source = ./config/waybar/modules/ModulesWorkspaces;
+    #".config/emacs/init.el".source = ./config/emacs/init.el;
   };
 
   home.sessionVariables = {
@@ -164,6 +155,8 @@
     ./programs/waybar.nix
     ./programs/zathura.nix
     ./programs/firefox.nix
+    ./programs/rofi.nix
+    ./programs/emacs.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
