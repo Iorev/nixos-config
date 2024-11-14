@@ -10,7 +10,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:Utisse/nixvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +22,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay/95821bb1f52bac1f268a77898cc863ebdf3249b8";
   };
 
   outputs = {
@@ -54,7 +53,6 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          inputs.nixvim.homeManagerModules.nixvim
           ./home.nix
         ];
       };

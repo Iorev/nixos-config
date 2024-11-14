@@ -12,8 +12,9 @@
 
   stylix = {
     enable = true;
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    targets.hyprland.enable = false;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./config/wallpaper/nix-colored.png;
     opacity = {
       applications = 0.1; #This doesn't seem to work
@@ -43,47 +44,50 @@
   };
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    godot_4 # open source game engine
-    htop-vim # system monitor with vim keybindings
-    zathura # pdf viewer with vim keybindings
-    nnn #terminal file manager
-    eza #modern replacement for ls
-    fzf #cli fuzzy finder
-    yq
-    zoxide
-    texliveFull
-    (python312.withPackages (p: [
-      p.pyyaml
-    ]))
-    dropbox
-    tlrc
-    vlc
-    graphicsmagick
-    grim
-    slurp
-    zenity
-    wl-clipboard
-    unzip
-    telegram-desktop
-    headsetcontrol
-    gh
-    libsecret
-    nchat
-    aseprite
-    obsidian
-    ripgrep
-    blueman
-    stremio
-    kitty
-    alejandra
-    base16-schemes
-    onedrive
-    viu
-    vimiv-qt
-    gammastep
-    virt-manager
-    tut
+  home.packages = [
+    inputs.nixvim.packages.${pkgs.system}.default
+    pkgs.godot_4 # open source game engine
+    pkgs.htop-vim # system monitor with vim keybindings
+    pkgs.zathura # pdf viewer with vim keybindings
+    pkgs.nnn #terminal file manager
+    pkgs.eza #modern replacement for ls
+    pkgs.fzf #cli fuzzy finder
+    pkgs.yq
+    pkgs.zoxide
+    pkgs.texliveFull
+    #(pkgs.python312.withPackages (p: [
+    #  pyyaml
+    #]))
+    pkgs.dropbox
+    pkgs.tlrc
+    pkgs.vlc
+    pkgs.graphicsmagick
+    pkgs.grim
+    pkgs.slurp
+    pkgs.zenity
+    pkgs.wl-clipboard
+    pkgs.unzip
+    pkgs.telegram-desktop
+    pkgs.headsetcontrol
+    pkgs.gh
+    pkgs.libsecret
+    pkgs.nchat
+    pkgs.aseprite
+    pkgs.obsidian
+    pkgs.ripgrep
+    pkgs.blueman
+    pkgs.stremio
+    pkgs.kitty
+    pkgs.alejandra
+    pkgs.base16-schemes
+    pkgs.onedrive
+    pkgs.viu
+    pkgs.vimiv-qt
+    pkgs.gammastep
+    pkgs.virt-manager
+    pkgs.tut
+    pkgs.clang
+    pkgs.ytfzf
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -122,10 +126,11 @@
       eval "$(zoxide init --cmd cd bash)"
     '';
     shellAliases = {
-      ls = "ls --color=auto";
-      ll = "ls -la";
+      #ls = "ls --color=auto";
+      #ll = "ls -la";
       shtdwn = "shutdown now";
-      ell = "eza -la";
+      ls = "eza";
+      ll = "eza -la";
       ett = "eza --tree";
     };
   };
@@ -147,14 +152,14 @@
   };
 
   imports = [
-    ./programs/nixvim.nix
+    #./programs/nixvim
     ./programs/kitty.nix
     ./programs/hyprland.nix
     ./programs/waybar.nix
     ./programs/zathura.nix
     ./programs/firefox.nix
     ./programs/rofi.nix
-    ./programs/emacs.nix
+    #./programs/emacs.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
