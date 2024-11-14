@@ -17,9 +17,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "XPSnixos"; # Define your hostname.
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -158,13 +160,14 @@
     qemu
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  programs.steam.enable = true;
 
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
     (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
   ];
+  #Install Steam
+  programs.steam.enable = true;
 
   virtualisation.libvirtd.enable = true;
   virtualisation.vmVariant = {
