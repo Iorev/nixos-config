@@ -55,9 +55,10 @@
     pkgs.yq
     pkgs.zoxide
     pkgs.texliveFull
-    #(pkgs.python312.withPackages (p: [
-    #  pyyaml
-    #]))
+    (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+      # select Python packages here
+      pyyaml
+    ]))
     pkgs.dropbox
     pkgs.tlrc
     pkgs.vlc
