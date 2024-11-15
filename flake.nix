@@ -22,6 +22,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #    sops-nix = {
+    #      url = "github:Mic92/sops-nix";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
   };
 
   outputs = {
@@ -38,6 +43,7 @@
         modules = [
           ./configuration.nix
           inputs.stylix.nixosModules.stylix
+          #inputs.sops-nix.nixosModules.sops
         ];
       };
       iso = nixpkgs.lib.nixosSystem {
@@ -53,6 +59,7 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           inputs.stylix.homeManagerModules.stylix
+          #inputs.sops-nix.homeManagerModules.sops
           ./home.nix
         ];
       };

@@ -89,6 +89,7 @@
     pkgs.tut
     pkgs.clang
     pkgs.ytfzf
+    pkgs.screenkey
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;

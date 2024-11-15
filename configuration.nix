@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
+  system,
   pkgs,
   inputs,
   ...
@@ -10,7 +11,22 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    #inputs.sops-nix.nixosModules.sops
   ];
+
+  # TODO: Secret manager
+  #SOPS
+  #sops = {
+  #  defaultSopsFile = ./secrets/secrets.yaml;
+  #  defaultSopsFormat = "yaml";
+  #  age.keyFile = "/home/lorev/.config/sops/age/keys.txt";
+  #  secrets = {
+  #    factorio_token = {
+  #      owner = "lorev.name";
+  #      group = "lorev.group";
+  #    };
+  #  };
+  #};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -136,28 +152,37 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+  #nixpkgs.config.packageOverrides = pkgs: {
+  #  factorio = pkgs.factorio.override {
+  #    username = "Utis";
+  # This works but it requires to put in the following line a secrets.
+  # Is there a better way??
+  #    token = "";
+  #  };
+  #};
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    dunst
-    libnotify
-    swww
-    networkmanagerapplet
-    brightnessctl
-    pavucontrol
-    waybar
-    jdk
-    zoxide
-    zathura
-    htop-vim
-    jq
-    openresolv
-    nh
-    nixd
-    qemu
+  environment.systemPackages = [
+    pkgs.factorio
+    pkgs.vim
+    pkgs.git
+    pkgs.dunst
+    pkgs.libnotify
+    pkgs.swww
+    pkgs.networkmanagerapplet
+    pkgs.brightnessctl
+    pkgs.pavucontrol
+    pkgs.waybar
+    pkgs.jdk
+    pkgs.zoxide
+    pkgs.zathura
+    pkgs.htop-vim
+    pkgs.jq
+    pkgs.openresolv
+    pkgs.nh
+    pkgs.nixd
+    pkgs.qemu
+    pkgs.sops
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
@@ -197,7 +222,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-services.kanata = {
+  services.kanata = {
     enable = true;
     keyboards = {
       internalKeyboard = {
