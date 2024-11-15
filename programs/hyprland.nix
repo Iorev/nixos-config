@@ -55,7 +55,7 @@
 
       input = {
         kb_layout = "it";
-        kb_options = "caps:swapescape";
+        #kb_options = "caps:swapescape";
       };
       gestures = {
         workspace_swipe = true;

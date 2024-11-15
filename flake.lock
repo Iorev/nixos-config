@@ -725,11 +725,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1725194671,
-        "narHash": "sha256-tLGCFEFTB5TaOKkpfw3iYT9dnk4awTP/q4w+ROpMfuw=",
+        "lastModified": 1731531548,
+        "narHash": "sha256-sz8/v17enkYmfpgeeuyzniGJU0QQBfmAjlemAUYhfy8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b833ff01a0d694b910daca6e2ff4a3f26dee478c",
+        "rev": "24f0d4acd634792badd6470134c387a3b039dace",
         "type": "github"
       },
       "original": {
@@ -748,11 +748,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1731618153,
-        "narHash": "sha256-+Janc5Eus8VtokXvw60t8bIvnbNS7H5HoD2GTqthNmw=",
+        "lastModified": 1731625067,
+        "narHash": "sha256-XNJkT85gL934vepAyJkv0X3JEVwCMW22Rmg6JRUnKBU=",
         "owner": "Utisse",
         "repo": "nixvim-config",
-        "rev": "239b96a337b97b26ba4f4816deaacdafd69f14d3",
+        "rev": "93a5aa2d7ba55c12191271b1092dbb46bd862af4",
         "type": "github"
       },
       "original": {
@@ -897,11 +897,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1731577695,
-        "narHash": "sha256-ohxX2gG7zDWIA3slEbiSyAVSiO98clCoL+CmiEiYwVU=",
+        "lastModified": 1731657386,
+        "narHash": "sha256-Mm/JL8tFUS1SOmmZDPcswExUxzw0VpHcEyZI1h58CGA=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "e0a278871b63b1800ccdda568861b5324dd93797",
+        "rev": "5ab1207b2fdeb5a022f2dd7cccf6be760f1b150f",
         "type": "github"
       },
       "original": {

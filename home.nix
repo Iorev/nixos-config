@@ -12,7 +12,6 @@
 
   stylix = {
     enable = true;
-    targets.hyprland.enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./config/wallpaper/nix-colored.png;
