@@ -183,6 +183,8 @@
     pkgs.nixd
     pkgs.qemu
     pkgs.sops
+    pkgs.steam-tui
+    pkgs.steamcmd
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
