@@ -45,7 +45,6 @@
   # environment.
   home.packages = [
     inputs.nixvim.packages.${pkgs.system}.default
-    pkgs.godot_4 # open source game engine
     pkgs.htop-vim # system monitor with vim keybindings
     pkgs.zathura # pdf viewer with vim keybindings
     pkgs.nnn #terminal file manager
@@ -89,7 +88,15 @@
     pkgs.tut
     pkgs.clang
     pkgs.ytfzf
-    pkgs.screenkey
+    pkgs.calibre
+    pkgs.whatsie
+    pkgs.bitwarden
+    pkgs.rclone
+    pkgs.rclone-browser
+    pkgs.lutris
+    pkgs.wine-wayland
+    pkgs.prismlauncher
+    pkgs.chromium
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -161,6 +168,7 @@
     ./programs/zathura.nix
     ./programs/firefox.nix
     ./programs/rofi.nix
+    ./programs/thunderbird.nix
     #./programs/emacs.nix
   ];
 

@@ -120,7 +120,7 @@
         "$mainMod, mouse_up, workspace, e-1"
 
         # University shortcuts
-        "Control_L&Alt_L, n, exec, nvim ~/current_course/"
+        "Control_L&Alt_L, n, exec,kitty -d ~/current_course --hold sh -c nvim"
         "Control_L&Alt_L, l, exec, python3 ~/university-setup/scripts/rofi-lectures.py"
         "Control_L&Alt_L, c, exec, python3 ~/university-setup/scripts/rofi-courses.py"
         "Control_L&Alt_L, v, exec, python3 ~/university-setup/scripts/rofi-lectures-view.py"
@@ -128,10 +128,11 @@
         "Control_L&Alt_L, s, exec, bash ~/university-setup/scripts/select_subfolder"
         "Control_L&Alt_L, p, exec, bash ~/university-setup/scripts/select_file"
         "Control_L&Alt_L, y, exec, bash ~/university-setup/scripts/select_file rec"
+        "Control_L&Alt_L, o, exec, kitty -d ~/current_course/onedrive"
         "Control_L&Alt_L, i, exec, bash ~/university-setup/scripts/scrsht_util.sh"
 
         "Control_L&Alt_L, w, exec, $browser -new-tab $(yq .link ~/current_course/info.yaml | tr -d '\"')"
-        "Control_L&Alt_L, o, exec, $browser -new-tab $(yq .onedrive ~/current_course/info.yaml | tr -d '\"')"
+        #"Control_L&Alt_L, o, exec, $browser -new-tab $(yq .onedrive ~/current_course/info.yaml | tr -d '\"')"
         "Control_L&Alt_L, x, exec, $browser -new-tab $(yq .extra ~/current_course/info.yaml | tr -d '\"')"
         "Control_L&Alt_L, g, exec, $browser -new-tab $(yq .goodnotes ~/current_course/info.yaml | tr -d '\"')"
       ];

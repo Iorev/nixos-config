@@ -74,6 +74,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  services.fprintd = {
+    enable = true;
+    tod = {
+      enable = true;
+      driver = pkgs.libfprint-2-tod1-goodix;
+    };
+  };
+
   # Enable the GNOME desktop environment
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -129,6 +137,12 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.weylus = {
+    enable = true;
+    openFirewall = true;
+    users = ["lorev"];
+  };
+
   # Install Hyperland
   programs.hyprland = {
     enable = true;
@@ -148,7 +162,7 @@
     nvidia.modesetting.enable = true;
   };
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -163,7 +177,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
-    pkgs.factorio
     pkgs.vim
     pkgs.git
     pkgs.dunst
@@ -183,8 +196,7 @@
     pkgs.nixd
     pkgs.qemu
     pkgs.sops
-    pkgs.steam-tui
-    pkgs.steamcmd
+    pkgs.nss
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
@@ -219,13 +231,13 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [8080];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
   services.kanata = {
-    enable = true;
+    enable = false;
     keyboards = {
       internalKeyboard = {
         devices = [
