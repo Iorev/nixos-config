@@ -93,8 +93,6 @@
     pkgs.bitwarden
     pkgs.rclone
     pkgs.rclone-browser
-    pkgs.lutris
-    pkgs.wine-wayland
     pkgs.prismlauncher
     pkgs.chromium
   ]; #END OF PACKAGES

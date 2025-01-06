@@ -206,7 +206,7 @@
     (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
   ];
   #Install Steam
-  programs.steam.enable = true;
+  programs.steam.enable = false;
 
   virtualisation.libvirtd.enable = true;
   virtualisation.vmVariant = {
@@ -237,7 +237,7 @@
   # networking.firewall.enable = false;
 
   services.kanata = {
-    enable = false;
+    enable = true;
     keyboards = {
       internalKeyboard = {
         devices = [
