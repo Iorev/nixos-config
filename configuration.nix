@@ -85,6 +85,7 @@
   # Enable the GNOME desktop environment
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.envfs.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -143,6 +144,7 @@
     users = ["lorev"];
   };
 
+  programs.kdeconnect.enable = true;
   # Install Hyperland
   programs.hyprland = {
     enable = true;
@@ -206,7 +208,7 @@
     (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
   ];
   #Install Steam
-  programs.steam.enable = false;
+  programs.steam.enable = true;
 
   virtualisation.libvirtd.enable = true;
   virtualisation.vmVariant = {
@@ -231,10 +233,10 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8080];
+  #networking.firewall.allowedTCPPorts = [8080];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   services.kanata = {
     enable = true;
