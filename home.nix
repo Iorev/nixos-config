@@ -95,6 +95,9 @@
     pkgs.rclone-browser
     pkgs.prismlauncher
     pkgs.chromium
+    pkgs.localsend
+    pkgs.libreoffice-qt
+    pkgs.libz
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;

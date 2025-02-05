@@ -120,6 +120,7 @@
         "$mainMod, mouse_up, workspace, e-1"
 
         # University shortcuts
+        "Control_L&Alt_L, t, exec, kitty -d ~/current_course"
         "Control_L&Alt_L, n, exec,kitty -d ~/current_course --hold sh -c nvim"
         "Control_L&Alt_L, l, exec, python3 ~/university-setup/scripts/rofi-lectures.py"
         "Control_L&Alt_L, c, exec, python3 ~/university-setup/scripts/rofi-courses.py"

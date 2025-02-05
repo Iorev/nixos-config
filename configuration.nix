@@ -48,10 +48,11 @@
   programs.nm-applet.enable = true;
 
   programs.nix-ld.enable = true;
-  #programs.nix-ld.libraries = with pkgs; [
-  # Add any missing dynamic libraries for unpackaged programs
-  # here, NOT in environment.systemPackages
-  #];
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+    icu
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -72,32 +73,38 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.fprintd = {
-    enable = true;
-    tod = {
+  services = {
+    xserver.enable = true;
+    fprintd = {
       enable = true;
-      driver = pkgs.libfprint-2-tod1-goodix;
+      tod = {
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-goodix;
+      };
     };
-  };
+    # Enable the GNOME desktop environment
+    xserver = {
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
+    envfs.enable = true;
 
-  # Enable the GNOME desktop environment
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.envfs.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "it";
-    variant = "";
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "it";
+      variant = "";
+    };
+    # Disable CUPS to print documents.
+    printing.enable = false;
+    flatpak.enable = true;
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "both";
+    };
   };
 
   # Configure console keymap
   console.keyMap = "it2";
-
-  # Disable CUPS to print documents.
-  services.printing.enable = false;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -128,8 +135,6 @@
     #  thunderbird
     #];
   };
-  services.flatpak.enable = true;
-
   # Enable automatic login for the user.
   #services.displayManager.autoLogin= {
   #  enable = true;
@@ -199,6 +204,10 @@
     pkgs.qemu
     pkgs.sops
     pkgs.nss
+    pkgs.wayland
+    pkgs.wayland-protocols
+    pkgs.wlroots
+    pkgs.libxkbcommon
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
@@ -233,10 +242,10 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  #networking.firewall.allowedTCPPorts = [8080];
+  networking.firewall.allowedTCPPorts = [8080 8081];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
   services.kanata = {
     enable = true;
