@@ -27,6 +27,10 @@
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
+  fileSystems."/home/lorev/archive" = {
+    device = "/dev/disk/by-uuid/a6d24636-2630-4c47-b91a-563a9539cdb0";
+    options = ["nofail"];
+  };
 
   swapDevices = [];
 
