@@ -72,8 +72,6 @@
     pkgs.gh
     pkgs.libsecret
     pkgs.nchat
-    pkgs.aseprite
-    pkgs.obsidian
     pkgs.ripgrep
     pkgs.blueman
     pkgs.stremio
@@ -93,11 +91,11 @@
     pkgs.bitwarden
     pkgs.rclone
     pkgs.rclone-browser
-    pkgs.prismlauncher
     pkgs.chromium
     pkgs.localsend
     pkgs.libreoffice-qt
-    pkgs.libz
+    pkgs.gimp
+    pkgs.hacompanion
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
