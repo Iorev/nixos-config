@@ -107,7 +107,7 @@
   console.keyMap = "it2";
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -214,7 +214,8 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    (nerdfonts.override {fonts = ["FiraCode" "Mononoki"];})
+    nerd-fonts.fira-code
+    nerd-fonts.mononoki
   ];
   #Install Steam
   programs.steam.enable = true;
