@@ -18,6 +18,7 @@
         "nm-applet --indicator"
         "waybar"
         "dunst"
+        "blueman-applet"
         "gammastep-indicator -l 45.068371:7.683070"
       ];
       monitor = [
