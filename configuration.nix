@@ -89,7 +89,10 @@
     };
     # Enable the GNOME desktop environment
     xserver = {
-      displayManager.gdm.enable = true;
+      displayManager.gdm={
+        enable = true;
+        banner = '' Bentornato Lorenzo! '';
+      };
       desktopManager.gnome.enable = true;
     };
     envfs.enable = true;
