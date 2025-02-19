@@ -96,6 +96,9 @@
     pkgs.libreoffice-qt
     pkgs.gimp
     pkgs.hacompanion
+    pkgs.godot_4
+    pkgs.aseprite
+    pkgs.speedtest-cli
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
