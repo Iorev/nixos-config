@@ -71,11 +71,11 @@
           newtabpage.enabled = false;
           vpn_promo.enabled = false;
         };
-        extensions = {
-          getAddons.showPane = false;
-          pocket.enabled = false;
-          webextensions.restrictedDomains = " ";
-        };
+       extensions = {
+         getAddons.showPane = false;
+         pocket.enabled = false;
+         webextensions.restrictedDomains = " ";
+       };
         privacy.resistFingerprinting.block_modAddonManager = true;
       };
 
@@ -83,7 +83,7 @@
         /* some css */
       '';
 
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
         ublock-origin
         sponsorblock
