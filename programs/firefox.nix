@@ -92,6 +92,7 @@
         facebook-container
         youtube-shorts-block
         dearrow
+        foxyproxy-standard
       ];
     };
   };
