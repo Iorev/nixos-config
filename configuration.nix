@@ -40,7 +40,6 @@
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-
   };
 
   # Configure network proxy if necessary
@@ -89,9 +88,9 @@
     };
     # Enable the GNOME desktop environment
     xserver = {
-      displayManager.gdm={
+      displayManager.gdm = {
         enable = true;
-        banner = '' Bentornato Lorenzo! '';
+        banner = ''Bentornato Lorenzo! '';
       };
       desktopManager.gnome.enable = true;
     };
@@ -151,7 +150,6 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.adb.enable = true;
-  
 
   programs.weylus = {
     enable = true;
