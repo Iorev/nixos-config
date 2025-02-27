@@ -99,6 +99,10 @@
     pkgs.godot_4
     pkgs.aseprite
     pkgs.speedtest-cli
+    pkgs.ckan
+    pkgs.prismlauncher
+    pkgs.audacity
+    pkgs.android-tools
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -145,6 +149,7 @@
       ett = "eza --tree";
     };
   };
+  programs.java.enable = true; 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

@@ -31,7 +31,7 @@
       };
       decoration = {
         rounding = 5;
-        "active_opacity" = 0.85;
+        "active_opacity" = 1;
         "inactive_opacity" = 0.75;
         blur = {
           enabled = true;
