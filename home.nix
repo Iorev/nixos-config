@@ -3,48 +3,24 @@
   pkgs,
   inputs,
   ...
-}: {
+}: 
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+  nixvim-package = inputs.nixvim.packages.${system}.default;
+  extended-nixvim = nixvim-package.extend config.lib.stylix.nixvim.config;
+in
+
+
+{
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "lorev";
   home.homeDirectory = "/home/lorev";
-
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    image = ./config/wallpaper/nix-colored.png;
-    opacity = {
-      applications = 0.1; #This doesn't seem to work
-      desktop = 0.75;
-      popups = 0.85;
-      terminal = 0.75;
-    };
-
-    cursor = {
-      package = pkgs.capitaine-cursors-themed;
-      name = "Capitaine Cursors (Gruvbox)";
-    };
-    fonts = {
-      serif = {
-        package = pkgs.fira-sans;
-        name = "FiraSans";
-      };
-      sansSerif = {
-        package = pkgs.fira-sans;
-        name = "FiraSans";
-      };
-      monospace = {
-        package = pkgs.fira-mono;
-        name = "Fira Code nerd font mono";
-      };
-    };
-  };
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    inputs.nixvim.packages.${pkgs.system}.default
+    extended-nixvim
     pkgs.htop-vim # system monitor with vim keybindings
     pkgs.zathura # pdf viewer with vim keybindings
     pkgs.nnn #terminal file manager
@@ -102,7 +78,7 @@
     pkgs.ckan
     pkgs.prismlauncher
     pkgs.audacity
-    pkgs.android-tools
+    #pkgs.android-tools
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -149,19 +125,10 @@
       ett = "eza --tree";
     };
   };
-  programs.java.enable = true; 
+  programs.java.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    ".config/waybar/watch_course.sh".text = ''
-      #!/bin/bash
-      cat /tmp/current_course'';
-    ".config/wallpaper/recolor_wallpaper.sh".text = ''
-      gm convert -background "#${config.lib.stylix.colors.base00}" -flatten nix-transp.png /home/lorev/nixos-config/config/wallpaper/nix-colored.png
-    '';
-    ".config/wallpaper/nix-transp.png".source = ./config/wallpaper/nix-transp.png;
-    #".config/emacs/init.el".source = ./config/emacs/init.el;
-  };
+
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -169,6 +136,7 @@
 
   imports = [
     #./programs/nixvim
+    ./config/files.nix
     ./programs/kitty.nix
     ./programs/hyprland.nix
     ./programs/waybar.nix
@@ -176,6 +144,7 @@
     ./programs/firefox.nix
     ./programs/rofi.nix
     ./programs/thunderbird.nix
+    ./programs/stylix.nix
     #./programs/emacs.nix
   ];
 
