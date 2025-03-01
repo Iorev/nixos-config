@@ -41,7 +41,7 @@
         specialArgs = {inherit system inputs;};
         modules = [
           ./configuration.nix
-          inputs.stylix.nixosModules.stylix
+            #inputs.stylix.nixosModules.stylix
           #inputs.sops-nix.nixosModules.sops
         ];
       };

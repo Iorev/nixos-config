@@ -71,7 +71,7 @@
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
       "$menu" = "rofi -show drun";
-      "$browser" = "firefox";
+      "$browser" = "librewolf";
       bind = [
         "$mainMod, Return, exec, $terminal"
         "$mainMod, Q, killactive"
