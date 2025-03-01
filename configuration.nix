@@ -147,8 +147,6 @@
   #  enable = true;
   #  user = "lorev";
   #};
-  # Install firefox.
-  programs.firefox.enable = true;
   programs.adb.enable = true;
 
   programs.weylus = {
@@ -157,7 +155,6 @@
     users = ["lorev"];
   };
 
-  programs.kdeconnect.enable = true;
   # Install Hyperland
   programs.hyprland = {
     enable = true;
