@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  programs.firefox = {
+  programs.librewolf = {
     enable = true;
     profiles.lorev = {
       search.engines = {
@@ -71,11 +71,11 @@
           newtabpage.enabled = false;
           vpn_promo.enabled = false;
         };
-       extensions = {
-         getAddons.showPane = false;
-         pocket.enabled = false;
-         webextensions.restrictedDomains = " ";
-       };
+        extensions = {
+          getAddons.showPane = false;
+          pocket.enabled = false;
+          webextensions.restrictedDomains = " ";
+        };
         privacy.resistFingerprinting.block_modAddonManager = true;
       };
 
