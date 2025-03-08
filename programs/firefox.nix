@@ -6,7 +6,9 @@
   programs.librewolf = {
     enable = true;
     profiles.lorev = {
-      search.engines = {
+      search = {
+        default = "DuckDuckGo";
+        engines = {
         "Nix Packages" = {
           urls = [
             {
@@ -28,15 +30,10 @@
           definedAliases = ["@np"];
         };
       };
+      };
       search.force = true;
 
       bookmarks = [
-        {
-          name = "YT music";
-          tags = ["music"];
-          keyword = "music";
-          url = "https://music.youtube.com";
-        }
         {
           name = "Monthly Planner";
           tags = ["uni"];
