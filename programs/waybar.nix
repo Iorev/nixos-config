@@ -147,8 +147,8 @@
          #custom-weather.showyIcyDay,
          #custom-weather.snowyIcyNight,
          #custom-weather.sunnyDay {
-         	padding-top: 4px;
-         	padding-bottom: 4px;
+         	padding-top: 0px;
+         	padding-bottom: 1px;
          	padding-right: 6px;
          	padding-left: 6px;
          }
