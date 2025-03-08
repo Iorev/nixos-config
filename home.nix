@@ -28,7 +28,6 @@ in
     pkgs.fzf #cli fuzzy finder
     pkgs.yq
     pkgs.zoxide
-    pkgs.texliveFull
     (pkgs.python3.withPackages (python-pkgs:
       with python-pkgs; [
         # select Python packages here
@@ -78,7 +77,12 @@ in
     pkgs.ckan
     pkgs.prismlauncher
     pkgs.audacity
-    #pkgs.android-tools
+    pkgs.inkscape
+    pkgs.latexrun
+    pkgs.xdotool
+    pkgs.discord
+    pkgs.newsflash
+    inputs.yt-x.packages."${system}".default
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -123,6 +127,7 @@ in
       ls = "eza";
       ll = "eza -la";
       ett = "eza --tree";
+      zi = "zathura";
     };
   };
   programs.java.enable = true;
@@ -145,6 +150,7 @@ in
     ./programs/rofi.nix
     ./programs/thunderbird.nix
     ./programs/stylix.nix
+    ./programs/texlive.nix
     #./programs/emacs.nix
   ];
 
