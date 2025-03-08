@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       general = {
-        gaps_in = 2;
+        gaps_in = 1;
         gaps_out = 5;
         border_size = 1;
         #"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
@@ -20,6 +20,7 @@
         "dunst"
         "blueman-applet"
         "gammastep-indicator -l 45.068371:7.683070"
+        "hacompanion"
       ];
       monitor = [
         "eDP-1,preferred,auto,1.25"
@@ -143,8 +144,8 @@
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle "
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
