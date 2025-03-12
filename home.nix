@@ -3,15 +3,11 @@
   pkgs,
   inputs,
   ...
-}: 
-let
+}: let
   inherit (pkgs.stdenv.hostPlatform) system;
   nixvim-package = inputs.nixvim.packages.${system}.default;
   extended-nixvim = nixvim-package.extend config.lib.stylix.nixvim.config;
-in
-
-
-{
+in {
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -107,6 +103,22 @@ in
       push = {autoSetupRemote = true;};
     };
   };
+  programs.gitui = {
+    enable = true;
+    theme = ''
+            (
+          move_left: Some(( code: Char('h'), modifiers: "")),
+          move_right: Some(( code: Char('l'), modifiers: "")),
+          move_up: Some(( code: Char('k'), modifiers: "")),
+          move_down: Some(( code: Char('j'), modifiers: "")),
+
+          stash_open: Some(( code: Char('l'), modifiers: "")),
+          open_help: Some(( code: F(1), modifiers: "")),
+
+          status_reset_item: Some(( code: Char('U'), modifiers: "SHIFT")),
+      )
+    '';
+  };
 
   programs.bash = {
     enable = true;
@@ -119,6 +131,10 @@ in
       	exit
       	}
       eval "$(zoxide init --cmd cd bash)"
+      if command -v fzf-share >/dev/null; then
+        source "$(fzf-share)/key-bindings.bash"
+        source "$(fzf-share)/completion.bash"
+      fi
     '';
     shellAliases = {
       #ls = "ls --color=auto";
@@ -133,7 +149,6 @@ in
   programs.java.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-
 
   home.sessionVariables = {
     EDITOR = "nvim";
