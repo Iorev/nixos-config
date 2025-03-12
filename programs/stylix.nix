@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   inputImage = ../config/wallpaper/nix-transp.png;
-  themeName = "nord";
+  themeName = "aztec";
   theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
   wallpaper = pkgs.runCommand "nix-colored.png" {} ''
     COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
