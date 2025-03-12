@@ -78,7 +78,6 @@
 
   # Enable the X11 windowing system.
   services = {
-    xserver.enable = true;
     fprintd = {
       enable = true;
       tod = {
@@ -88,19 +87,20 @@
     };
     # Enable the GNOME desktop environment
     xserver = {
+      enable = true;
       displayManager.gdm = {
         enable = true;
         banner = ''Bentornato Lorenzo! '';
       };
       desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "it";
+        variant = "";
+      };
     };
     envfs.enable = true;
 
     # Configure keymap in X11
-    xserver.xkb = {
-      layout = "it";
-      variant = "";
-    };
     # Disable CUPS to print documents.
     printing.enable = false;
     flatpak.enable = true;
