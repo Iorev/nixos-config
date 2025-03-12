@@ -9,27 +9,35 @@
       search = {
         default = "DuckDuckGo";
         engines = {
-        "Nix Packages" = {
-          urls = [
-            {
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
+          "My NixOs" = {
+            urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
+            definedAliases = ["@mynix"];
+          };
+          "Google Scholar" = {
+            urls = [{template = "https://scholar.google.com.hk/scholar?hl=it&as_sdt=0%2C5&q={searchTerms}&btnG=";}];
+            definedAliases = ["@gs"];
+          };
+          "Nix Packages" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@np"];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@np"];
+          };
         };
-      };
       };
       search.force = true;
 
