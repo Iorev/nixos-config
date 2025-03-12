@@ -336,7 +336,7 @@
         margin-top = 1;
 
         modules-left = [
-          "idle_inhibitor"
+          #"idle_inhibitor"
           "group/mobo_drawer"
           "hyprland/workspaces#rw"
         ];
@@ -348,6 +348,7 @@
         modules-right = [
           "custom/file-text"
           "battery"
+          "custom/battery-mode"
           "pulseaudio#1"
           "tray"
         ];
@@ -551,6 +552,13 @@
           "tooltip-format" = "{timeTo} {power}w";
         };
 
+        "custom/battery-mode" = {
+          "exec" = "bash ~/.config/waybar/get_powermode.sh";
+          "interval" = 10;
+          "format" = "{}";
+          "on-click" = "bash ~/.config/waybar/set_powermode.sh &6 bash ~/.config/waybar/get_powermode.sh";
+          "return-type" = " text ";
+        };
         "custom/file-text" = {
           "exec" = "bash ~/.config/waybar/watch_course.sh";
           "interval" = 5;
