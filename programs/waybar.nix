@@ -500,7 +500,7 @@
           "spacing" = 4;
         };
         "pulseaudio#1" = {
-          "format" = "{icon}  {volume}%";
+          "format" = "{icon} {volume}%";
           "format-bluetooth" = "{icon}  {volume}%";
           "format-bluetooth-muted" = "  {icon}";
           "format-muted" = "󰸈";
@@ -513,7 +513,7 @@
             "car" = "";
             "default" = [" " " " " "];
           };
-          "on-click" = "pamixer --toggle-mute";
+          "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "on-click-right" = "pavucontrol -t 3";
           "tooltip" = true;
           "tooltip-format" = "{icon} {desc} | {volume}%";
