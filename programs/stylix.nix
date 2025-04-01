@@ -17,13 +17,15 @@ in {
       popups = 0.85;
       terminal = 0.95;
     };
+    polarity = "dark";
     # Librewolf themes
     targets.librewolf.profileNames = [ "lorev" ]; 
     targets.librewolf.colorTheme.enable = true;
 
     cursor = {
-      package = pkgs.capitaine-cursors-themed;
-      name = "Capitaine Cursors (Gruvbox)";
+     package = pkgs.whitesur-cursors;
+      name = "WhiteSur-cursors";
+      size = 1;
     };
     fonts = {
       serif = {
