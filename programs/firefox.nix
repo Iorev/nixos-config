@@ -81,7 +81,7 @@
           pocket.enabled = false;
           webextensions.restrictedDomains = " ";
         };
-        privacy.resistFingerprinting.block_modAddonManager = true;
+        privacy.resistFingerprinting.block_modAddonManager = false;
       };
 
       userChrome = ''
@@ -98,7 +98,9 @@
         youtube-shorts-block
         dearrow
         foxyproxy-standard
+        firefox-color
       ];
+      extensions.force = true;
     };
   };
 }
