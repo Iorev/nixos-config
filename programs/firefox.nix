@@ -7,7 +7,7 @@
     enable = true;
     profiles.lorev = {
       search = {
-        default = "DuckDuckGo";
+        default = "ddg";
         engines = {
           "My NixOs" = {
             urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
@@ -41,7 +41,9 @@
       };
       search.force = true;
 
-      bookmarks = [
+      bookmarks ={
+        force = true;
+        settings = [
         {
           name = "Monthly Planner";
           tags = ["uni"];
@@ -55,6 +57,7 @@
           url = "https://gitlab.com/polinetwork/AES";
         }
       ];
+      };
 
       settings = {
         "dom.security.https_only_mode" = true;
