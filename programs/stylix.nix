@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   inputImage = ../config/wallpaper/nix-transp.png;
-  themeName = "aztec";
+  themeName = "nord";
   theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
   wallpaper = pkgs.runCommand "nix-colored.png" {} ''
     COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
@@ -9,8 +9,6 @@
 in {
   stylix = {
     enable = true;
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    #image = ./config/wallpaper/nix-colored.png;
     image = wallpaper;
     base16Scheme = theme;
     opacity = {
@@ -19,6 +17,10 @@ in {
       popups = 0.85;
       terminal = 0.95;
     };
+    # Librewolf themes
+    targets.librewolf.profileNames = [ "lorev" ]; 
+    targets.librewolf.colorTheme.enable = true;
+
     cursor = {
       package = pkgs.capitaine-cursors-themed;
       name = "Capitaine Cursors (Gruvbox)";
