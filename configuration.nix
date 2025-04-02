@@ -268,8 +268,8 @@
            caps a s d f j k l ;
           )
           (defvar
-           tap-time 200
-           hold-time 300
+           tap-time 100
+           hold-time 500
           )
           (defalias
            capsesc (tap-hold $tap-time $hold-time esc lmet)
