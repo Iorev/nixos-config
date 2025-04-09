@@ -78,7 +78,9 @@ in {
     pkgs.xdotool
     pkgs.discord
     pkgs.newsflash
+    pkgs.tidal-hifi
     inputs.yt-x.packages."${system}".default
+    pkgs.nix-init
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -144,6 +146,7 @@ in {
       ll = "eza -la";
       ett = "eza --tree";
       zi = "zathura";
+      tssh = "tailscale ssh hspasqui@homelab";
     };
   };
   programs.java.enable = true;
