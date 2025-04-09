@@ -21,6 +21,7 @@
         "blueman-applet"
         "gammastep-indicator -l 45.068371:7.683070"
         "hacompanion"
+        "owncloud"
       ];
       monitor = [
         "eDP-1,preferred,auto,1.25"
@@ -130,7 +131,7 @@
         "Control_L&Alt_L, b, exec, python3 ~/university-setup/scripts/backup.py"
         "Control_L&Alt_L, s, exec, bash ~/university-setup/scripts/select_subfolder"
         "Control_L&Alt_L, p, exec, bash ~/university-setup/scripts/select_file"
-        "Control_L&Alt_L, y, exec, bash ~/university-setup/scripts/select_file rec"
+        "Control_L&Alt_L, y, exec, python3 ~/university-setup/scripts/select_file.py rec"
         "Control_L&Alt_L, o, exec, kitty -d ~/current_course/onedrive"
         "Control_L&Alt_L, i, exec, bash ~/university-setup/scripts/scrsht_util.sh"
 

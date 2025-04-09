@@ -81,6 +81,7 @@ in {
     pkgs.tidal-hifi
     inputs.yt-x.packages."${system}".default
     pkgs.nix-init
+    pkgs.owncloud-client
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
