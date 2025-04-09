@@ -137,7 +137,7 @@
     isNormalUser = true;
     description = "Lorenzo Pasqui";
     hashedPassword = "$y$j9T$/Zd2ewjXuVjuKz3YzWA3L/$iUOruuv0a6FT1QjzY1ZhTI5OkBxX88ZHXdpAJ6.tBk4";
-    extraGroups = ["libvirtd" "networkmanager" "wheel"];
+    extraGroups = [ "dialout" "libvirtd" "networkmanager" "wheel"];
     #packages = with pkgs; [
     #  thunderbird
     #];
