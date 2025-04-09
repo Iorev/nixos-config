@@ -33,7 +33,7 @@
       decoration = {
         rounding = 5;
         "active_opacity" = 1;
-        "inactive_opacity" = 0.75;
+        "inactive_opacity" = 0.95;
         blur = {
           enabled = true;
           size = 8;
