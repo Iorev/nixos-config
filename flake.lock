@@ -799,11 +799,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1744383189,
-        "narHash": "sha256-l+p2Crer8ywyNbQA1qpR67wUoZaQcy6TbEPwiuJ8JpM=",
+        "lastModified": 1744733389,
+        "narHash": "sha256-Q8VJ2p7Cz6QqzPZtXJJgEYIePL+iG6QzzB9dp9r4+iA=",
         "owner": "Utisse",
         "repo": "nixvim-config",
-        "rev": "26d3915ec6d852ffc82a5b8ef0be95f558b44921",
+        "rev": "b0b054ecf0196fbe5b078f82c58c1c2806619dd4",
         "type": "github"
       },
       "original": {
