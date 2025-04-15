@@ -82,6 +82,7 @@ in {
     inputs.yt-x.packages."${system}".default
     pkgs.nix-init
     pkgs.owncloud-client
+    pkgs.aria2
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -148,6 +149,7 @@ in {
       ett = "eza --tree";
       zi = "zathura";
       tssh = "tailscale ssh hspasqui@homelab";
+      ts = "tailscale";
     };
   };
   programs.java.enable = true;
