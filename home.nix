@@ -28,6 +28,7 @@ in {
       with python-pkgs; [
         # select Python packages here
         pyyaml
+        xlib
       ]))
     pkgs.dropbox
     pkgs.tlrc
@@ -80,6 +81,7 @@ in {
     pkgs.newsflash
     pkgs.tidal-hifi
     inputs.yt-x.packages."${system}".default
+    inputs.inkscape-figures.packages."${system}".inkscape-figures
     pkgs.nix-init
     pkgs.owncloud-client
     pkgs.aria2

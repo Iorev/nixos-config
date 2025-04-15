@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    inkscape-figures = {
+      url = "github:Utisse/inkscape-figures";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     yt-x = {
       url = "github:Benexl/yt-x";
     };
