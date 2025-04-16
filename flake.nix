@@ -9,7 +9,7 @@
     };
 
     nixvim = {
-      url = "github:Utisse/nixvim-config";
+      url = "github:Iorev/nixvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -23,12 +23,12 @@
     };
 
     inkscape-figures = {
-      url = "github:Utisse/inkscape-figures";
+      url = "github:Iorev/inkscape-figures";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     university-setup = {
-      url = "github:Utisse/university-setup";
+      url = "github:Iorev/university-setup";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yt-x = {
