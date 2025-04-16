@@ -27,6 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    university-setup = {
+      url = "github:Utisse/university-setup";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     yt-x = {
       url = "github:Benexl/yt-x";
     };
