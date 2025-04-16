@@ -87,9 +87,6 @@
         privacy.resistFingerprinting.block_modAddonManager = false;
       };
 
-      userChrome = ''
-        /* some css */
-      '';
 
       extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
