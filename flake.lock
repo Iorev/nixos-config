@@ -108,11 +108,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1744689812,
-        "narHash": "sha256-JTlOHSH7SsVJOccu932syyO4Jcqm5wOk6W5oGMtMq5o=",
+        "lastModified": 1744776211,
+        "narHash": "sha256-CY5XhdWPAO9342H5yQOKohlekW8uQQAWxlP5XME2SNk=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "92e485c8b01995f96573ff891e9175c466bed51d",
+        "rev": "6aede78e1455a7326ef47c70a610e62fed340792",
         "type": "gitlab"
       },
       "original": {
@@ -288,6 +288,24 @@
         "type": "github"
       }
     },
+    "flake-utils_5": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -398,11 +416,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744663884,
-        "narHash": "sha256-a6QGaZMDM1miK8VWzAITsEPOdmLk+xTPyJSTjVs3WhI=",
+        "lastModified": 1744735751,
+        "narHash": "sha256-OPpfgL3qUIbQdbmp1/ZwnlsuTLooHN4or0EABnZTFRY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d5cdf55bd9f19a3debd55b6cb5d38f7831426265",
+        "rev": "db7738e67a101ad945abbcb447e1310147afaf1b",
         "type": "github"
       },
       "original": {
@@ -506,11 +524,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1744646317,
-        "narHash": "sha256-Vs5vKsYOtUBdUyHZ9zmKZxhcEnwm9KM8LUhww44JKtE=",
+        "lastModified": 1744763868,
+        "narHash": "sha256-p+ZjAS3qOd6Pabqgf6DqZIo1aTSN7cBIqyuZ+2P560I=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "8b7b169043de2a9d95f8505edb8b6576fac586fd",
+        "rev": "877fb5b93ada9b25b4d2f5ca5f69370fa345f1ac",
         "type": "github"
       },
       "original": {
@@ -838,11 +856,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1744733389,
-        "narHash": "sha256-Q8VJ2p7Cz6QqzPZtXJJgEYIePL+iG6QzzB9dp9r4+iA=",
+        "lastModified": 1744796851,
+        "narHash": "sha256-PGBqpLRH0nQ+oA9mc/GfKPzD6DNs3vu8s1eJcvhMJeY=",
         "owner": "Utisse",
         "repo": "nixvim-config",
-        "rev": "b0b054ecf0196fbe5b078f82c58c1c2806619dd4",
+        "rev": "3e799669c8d26ffb7cdfeb2f9716bd6cac8a4961",
         "type": "github"
       },
       "original": {
@@ -985,6 +1003,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "stylix": "stylix",
+        "university-setup": "university-setup",
         "yt-x": "yt-x"
       }
     },
@@ -1084,6 +1103,21 @@
       }
     },
     "systems_5": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_6": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -1202,6 +1236,27 @@
         "type": "github"
       }
     },
+    "university-setup": {
+      "inputs": {
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744803738,
+        "narHash": "sha256-7JgcQy2X/C4rkqImHSRLhakfO4earhvreg/T2ZgBLXk=",
+        "owner": "Utisse",
+        "repo": "university-setup",
+        "rev": "14c919d4ee892976aa336df92a0cbe41f54d9046",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Utisse",
+        "repo": "university-setup",
+        "type": "github"
+      }
+    },
     "xdph": {
       "inputs": {
         "hyprland-protocols": [
@@ -1245,7 +1300,7 @@
     },
     "yt-x": {
       "inputs": {
-        "flake-utils": "flake-utils_4",
+        "flake-utils": "flake-utils_5",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
