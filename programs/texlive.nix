@@ -19,6 +19,7 @@
       transparent
       cleveref
       ifmtarg
+      l3packages
       ;
   };
 in {
