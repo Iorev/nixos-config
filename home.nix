@@ -9,12 +9,8 @@
   extended-nixvim = nixvim-package.extend config.lib.stylix.nixvim.config;
 in {
   nixpkgs.config.allowUnfree = true;
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "lorev";
   home.homeDirectory = "/home/lorev";
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     #FROM FLAKES
     extended-nixvim
@@ -141,8 +137,6 @@ in {
       fi
     '';
     shellAliases = {
-      #ls = "ls --color=auto";
-      #ll = "ls -la";
       shtdwn = "shutdown now";
       ls = "eza";
       ll = "eza -la";
@@ -153,15 +147,13 @@ in {
     };
   };
   programs.java.enable = true;
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    XDG_CONFIG_HOME = "/home/lorev/.config";
   };
 
   imports = [
-    #./programs/nixvim
     ./config/files.nix
     ./programs/kitty.nix
     ./programs/hyprland.nix
@@ -172,7 +164,6 @@ in {
     ./programs/thunderbird.nix
     ./programs/stylix.nix
     ./programs/texlive.nix
-    #./programs/emacs.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
