@@ -16,7 +16,12 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    #FROM FLAKES
     extended-nixvim
+    inputs.yt-x.packages."${system}".default
+    inputs.inkscape-figures.packages."${system}".inkscape-figures
+    inputs.university-setup.packages."${system}".default
+
     pkgs.htop-vim # system monitor with vim keybindings
     pkgs.zathura # pdf viewer with vim keybindings
     pkgs.nnn #terminal file manager
@@ -24,12 +29,6 @@ in {
     pkgs.fzf #cli fuzzy finder
     pkgs.yq
     pkgs.zoxide
-    (pkgs.python3.withPackages (python-pkgs:
-      with python-pkgs; [
-        # select Python packages here
-        pyyaml
-        xlib
-      ]))
     pkgs.dropbox
     pkgs.tlrc
     pkgs.vlc
@@ -80,11 +79,10 @@ in {
     pkgs.discord
     pkgs.newsflash
     pkgs.tidal-hifi
-    inputs.yt-x.packages."${system}".default
-    inputs.inkscape-figures.packages."${system}".inkscape-figures
     pkgs.nix-init
     pkgs.owncloud-client
     pkgs.aria2
+    pkgs.vscodium
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
