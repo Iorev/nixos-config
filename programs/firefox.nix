@@ -41,22 +41,22 @@
       };
       search.force = true;
 
-      bookmarks ={
+      bookmarks = {
         force = true;
         settings = [
-        {
-          name = "Monthly Planner";
-          tags = ["uni"];
-          keyword = "uni goodnotes";
-          url = "https://web.goodnotes.com/s/MUKxcGLiUj0TJ4Miu0cgAU#page-1";
-        }
-        {
-          name = "GitLab AER";
-          tags = ["uni"];
-          keyword = "uni gitlab";
-          url = "https://gitlab.com/polinetwork/AES";
-        }
-      ];
+          {
+            name = "Monthly Planner";
+            tags = ["uni"];
+            keyword = "uni goodnotes";
+            url = "https://web.goodnotes.com/s/MUKxcGLiUj0TJ4Miu0cgAU#page-1";
+          }
+          {
+            name = "GitLab AER";
+            tags = ["uni"];
+            keyword = "uni gitlab";
+            url = "https://gitlab.com/polinetwork/AES";
+          }
+        ];
       };
 
       settings = {
@@ -86,7 +86,6 @@
         };
         privacy.resistFingerprinting.block_modAddonManager = false;
       };
-
 
       extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden

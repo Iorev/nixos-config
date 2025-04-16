@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   inputImage = ../config/wallpaper/nix-transp.png;
-  themeName = "espresso";#https://tinted-theming.github.io/tinted-gallery/
+  themeName = "espresso"; #https://tinted-theming.github.io/tinted-gallery/
   theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
   wallpaper = pkgs.runCommand "nix-colored.png" {} ''
     COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
@@ -19,11 +19,11 @@ in {
     };
     polarity = "dark";
     # Librewolf themes
-    targets.librewolf.profileNames = [ "lorev" ]; 
+    targets.librewolf.profileNames = ["lorev"];
     targets.librewolf.colorTheme.enable = true;
 
     cursor = {
-     package = pkgs.whitesur-cursors;
+      package = pkgs.whitesur-cursors;
       name = "WhiteSur-cursors";
       size = 1;
     };
