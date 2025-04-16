@@ -38,8 +38,8 @@
         blur = {
           enabled = true;
           size = 8;
-          passes = 3;
-          vibrancy = 0.5;
+          passes = 5;
+          vibrancy = 0.75;
         };
       };
       animations = {
@@ -121,6 +121,8 @@
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
+
+        "$mainMod, f, fullscreen"
 
         # University shortcuts
         "Control_L&Alt_L, t, exec, kitty -d ~/current_course"
