@@ -108,11 +108,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1744813899,
-        "narHash": "sha256-5J6kSkPbtuyX0tRggqadwulpqdgWHyQEDwhqVnY0T+g=",
+        "lastModified": 1744834821,
+        "narHash": "sha256-FqC0CLpEawcxyxzcvchb8zUf/PQWhHkuQwewtrA+HwE=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "f6dff741f9f485b3596a368704ec171d9eb8c7cd",
+        "rev": "5cfddd195269d99cb863a4d3cd521569ad85844e",
         "type": "gitlab"
       },
       "original": {
@@ -416,11 +416,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744820898,
-        "narHash": "sha256-gUldr3LtCm/OfEnbH6sFFlyyxqPMCsfMs2Ha+0fdPDs=",
+        "lastModified": 1744833442,
+        "narHash": "sha256-BBMWW2m64Grcc5FlXz74+vdkUyCJOfUGnl+VcS/4x44=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7ede02c32a729db0d6340bdb41d10e73ec511ca0",
+        "rev": "c6b75d69b6994ba68ec281bd36faebcc56097800",
         "type": "github"
       },
       "original": {
@@ -719,13 +719,13 @@
       "locked": {
         "lastModified": 1744735823,
         "narHash": "sha256-cGi+PZfXaHa/pTzqxxLYxlw1wuqdL0g5dslBIs6/SSc=",
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "inkscape-figures",
         "rev": "676d53dcf48e3856eb33aa1d7c61831dce94418e",
         "type": "github"
       },
       "original": {
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "inkscape-figures",
         "type": "github"
       }
@@ -858,13 +858,13 @@
       "locked": {
         "lastModified": 1744826047,
         "narHash": "sha256-fktOEHOPDt3TikAgClDyjXAG0juCEw6C2vNYd187m+0=",
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "nixvim-config",
         "rev": "6aa2be982d7fa404800fd476f2e3f145e4468eba",
         "type": "github"
       },
       "original": {
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "nixvim-config",
         "type": "github"
       }
@@ -1246,13 +1246,13 @@
       "locked": {
         "lastModified": 1744803738,
         "narHash": "sha256-7JgcQy2X/C4rkqImHSRLhakfO4earhvreg/T2ZgBLXk=",
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "university-setup",
         "rev": "14c919d4ee892976aa336df92a0cbe41f54d9046",
         "type": "github"
       },
       "original": {
-        "owner": "Utisse",
+        "owner": "Iorev",
         "repo": "university-setup",
         "type": "github"
       }
