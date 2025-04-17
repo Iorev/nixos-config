@@ -71,7 +71,7 @@
         "XCURSOR_SIZE,32"
       ];
       "$mainMod" = "SUPER";
-      "$terminal" = "kitty";
+      "$terminal" = "alacritty";
       "$menu" = "rofi -show drun";
       "$browser" = "librewolf";
       bind = [

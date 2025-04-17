@@ -155,7 +155,7 @@ in {
 
   imports = [
     ./config/files.nix
-    ./programs/kitty.nix
+    #./programs/kitty.nix
     ./programs/hyprland.nix
     ./programs/waybar.nix
     ./programs/zathura.nix
@@ -164,6 +164,7 @@ in {
     ./programs/thunderbird.nix
     ./programs/stylix.nix
     ./programs/texlive.nix
+    ./programs/alacritty.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
