@@ -856,11 +856,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1744849615,
-        "narHash": "sha256-lcjKxFaH/VqK6sXDSW5pYVDibvwbNKCM8/jVYZrIBtg=",
+        "lastModified": 1744892222,
+        "narHash": "sha256-wY7XXAOH+ANotkSXtG3my58dsKIaPnnVgc7OYVvWSj0=",
         "owner": "Iorev",
         "repo": "nixvim-config",
-        "rev": "28d326bdfa0ccf6a23c40c4123285fba7d93639e",
+        "rev": "3fa4ef78e6f44182b47308b7c0ac6c56cbc6cda5",
         "type": "github"
       },
       "original": {
