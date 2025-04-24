@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix.url = "github:danth/stylix";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -65,11 +70,12 @@
         ];
       };
       homelab = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit system inputs;};
-          modules = [
-            ./nixos-server/configuration.nix
-          ];
-        };
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos-homelab/configuration.nix
+          inputs.nixvirt.nixosModules.default
+        ];
+      };
     };
     homeConfigurations = {
       lorev = inputs.home-manager.lib.homeManagerConfiguration {
