@@ -49,7 +49,6 @@ in {
     pkgs.viu
     pkgs.vimiv-qt
     pkgs.gammastep
-    pkgs.virt-manager
     pkgs.tut
     pkgs.clang
     pkgs.ytfzf
@@ -63,8 +62,6 @@ in {
     pkgs.libreoffice-qt
     pkgs.gimp
     pkgs.hacompanion
-    pkgs.godot_4
-    pkgs.aseprite
     pkgs.speedtest-cli
     pkgs.ckan
     pkgs.prismlauncher
@@ -92,6 +89,7 @@ in {
     icons = "auto";
     git = true;
   };
+
   programs.git = {
     enable = true;
     userName = "Utisse";
@@ -119,6 +117,26 @@ in {
       )
     '';
   };
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    initExtra = ''
+      eval "$(zoxide init --cmd cd zsh)"
+    '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git" "eza" "fzf" "safe-paste" "ssh" "ssh-agent" "zoxide"];
+      theme = "bira";
+    };
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch --flake /home/lorev/nixos-config/#";
+    };
+    history.size = 10000;
+  };
 
   programs.bash = {
     enable = true;
@@ -127,6 +145,12 @@ in {
            export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
            function zathura() {
            		nohup zathura "$@" > /dev/null 2>&1 &
+      	disown
+      	exit
+      	}
+        export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+           function vli() {
+           		nohup vlc "$@" > /dev/null 2>&1 &
       	disown
       	exit
       	}
