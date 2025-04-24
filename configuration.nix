@@ -117,11 +117,13 @@
   users.users.lorev = {
     isNormalUser = true;
     description = "Lorenzo Pasqui";
+    shell = pkgs.zsh;
     hashedPassword = "$y$j9T$/Zd2ewjXuVjuKz3YzWA3L/$iUOruuv0a6FT1QjzY1ZhTI5OkBxX88ZHXdpAJ6.tBk4";
-    extraGroups = [ "dialout" "libvirtd" "networkmanager" "wheel" ];
+    extraGroups = ["dialout" "libvirtd" "networkmanager" "wheel"];
   };
 
   programs.adb.enable = true;
+  programs.zsh.enable = true;
 
   programs.weylus = {
     enable = true;
@@ -143,6 +145,12 @@
     EDITOR = "nvim";
     FLAKE = "/home/lorev/nixos-config";
   };
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["lorev"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   hardware = {
     graphics.enable = true;
     nvidia.modesetting.enable = true;
@@ -237,6 +245,5 @@
       };
     };
   };
-  system.stateVersion = "24.05"; # Do not change this 
-
+  system.stateVersion = "24.05"; # Do not change this
 }
