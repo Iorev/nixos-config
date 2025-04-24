@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  programs.librewolf = {
+  programs.firefox = {
     enable = true;
     profiles.lorev = {
       search = {

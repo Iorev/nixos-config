@@ -22,6 +22,7 @@
         "gammastep-indicator -l 45.068371:7.683070"
         "hacompanion"
         "owncloud"
+        "bitwarden"
       ];
       monitor = [
         "eDP-1,preferred,auto,1.25"
@@ -73,7 +74,7 @@
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$menu" = "rofi -show drun";
-      "$browser" = "librewolf";
+      "$browser" = "firefox";
       bind = [
         "$mainMod, Return, exec, $terminal"
         "$mainMod, Q, killactive"

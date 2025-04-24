@@ -18,9 +18,8 @@ in {
       terminal = 0.95;
     };
     polarity = "dark";
-    # Librewolf themes
-    targets.librewolf.profileNames = ["lorev"];
-    targets.librewolf.colorTheme.enable = true;
+    targets.firefox.profileNames = ["lorev"];
+    targets.firefox.colorTheme.enable = true;
 
     cursor = {
       package = pkgs.whitesur-cursors;
