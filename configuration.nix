@@ -26,6 +26,7 @@
   #  };
   #};
 
+  nix.settings.download-buffer-size = 524288000;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -206,7 +207,7 @@
   programs.steam.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8080 8081 5829];
+  networking.firewall.allowedTCPPorts = [8080 8081 5829 8096];
   # networking.firewall.allowedUDPPorts = [ ... ];
   services.kanata = {
     enable = true;
