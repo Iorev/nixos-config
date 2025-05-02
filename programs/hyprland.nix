@@ -35,7 +35,7 @@
       decoration = {
         rounding = 5;
         "active_opacity" = 1;
-        "inactive_opacity" = 0.95;
+        "inactive_opacity" = 0.75;
         blur = {
           enabled = true;
           size = 8;
@@ -59,7 +59,7 @@
 
       input = {
         kb_layout = "it";
-        #kb_options = "caps:swapescape";
+        kb_options = "caps:swapescape";
       };
       gestures = {
         workspace_swipe = true;
@@ -126,8 +126,8 @@
         "$mainMod, f, fullscreen"
 
         # University shortcuts
-        "Control_L&Alt_L, t, exec, kitty -d ~/current_course"
-        "Control_L&Alt_L, n, exec,kitty -d ~/current_course --hold sh -c nvim"
+        "Control_L&Alt_L, t, exec, $terminal -d ~/current_course"
+        "Control_L&Alt_L, n, exec, $terminal -d ~/current_course --hold sh -c nvim"
         "Control_L&Alt_L, l, exec, rofi-lectures"
         "Control_L&Alt_L, c, exec, rofi-courses"
         "Control_L&Alt_L, v, exec, rofi-lectures-view"
