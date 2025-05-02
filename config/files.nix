@@ -1,4 +1,6 @@
-{config, ...}: let
+{
+  ...
+}: let
 in {
   home.file = {
     ".config/waybar/watch_course.sh".text = ''
