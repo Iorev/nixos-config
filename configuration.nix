@@ -144,7 +144,7 @@
     NIXOS_OZONE_WL = "1";
     #my sessionVariables
     EDITOR = "nvim";
-    FLAKE = "/home/lorev/nixos-config";
+    NH_FLAKE = "/home/lorev/nixos-config";
   };
 
   programs.virt-manager.enable = true;
@@ -210,7 +210,7 @@
   networking.firewall.allowedTCPPorts = [8080 8081 5829 8096];
   # networking.firewall.allowedUDPPorts = [ ... ];
   services.kanata = {
-    enable = true;
+    enable = false;
     keyboards = {
       internalKeyboard = {
         devices = [
