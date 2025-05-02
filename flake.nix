@@ -9,7 +9,7 @@
     };
 
     nixvim = {
-      url = "github:Iorev/nixvim-config";
+      url = "/home/lorev/nixvim/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

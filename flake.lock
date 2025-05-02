@@ -856,17 +856,14 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1744895897,
-        "narHash": "sha256-cLPwnbcF8+thu3VM7poRuvaL9LNVKcZQRcWcV9WydDo=",
-        "owner": "Iorev",
-        "repo": "nixvim-config",
-        "rev": "4ae1fbdb22f2ff1eda7c35ae83a8c402143e9329",
-        "type": "github"
+        "lastModified": 1745848343,
+        "narHash": "sha256-6W0BjFQzXe6kcVuKAkkIFY0Pcwyfdsx54MQWLmoixjo=",
+        "path": "/home/lorev/nixvim/",
+        "type": "path"
       },
       "original": {
-        "owner": "Iorev",
-        "repo": "nixvim-config",
-        "type": "github"
+        "path": "/home/lorev/nixvim/",
+        "type": "path"
       }
     },
     "nixvim_2": {
