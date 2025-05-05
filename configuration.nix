@@ -6,7 +6,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./distributed-builds.nix
+    #./distributed-builds.nix
     #inputs.sops-nix.nixosModules.sops
   ];
 

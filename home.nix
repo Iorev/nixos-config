@@ -89,10 +89,23 @@ in {
     icons = "auto";
     git = true;
   };
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "confirm";
+    forwardAgent = true;
+    extraConfig = ''
+      Host homelab-git
+        HostName homelab.tail0e73ab.ts.net     
+        user git
+        Port 2221
+        IdentityFile /home/lorev/.ssh/id_ed25519
+    '';
+
+  };
 
   programs.git = {
     enable = true;
-    userName = "Utisse";
+    userName = "lorev";
     userEmail = "lorenzopasqui@gmail.com";
     extraConfig = {
       credential.helper = "${
@@ -125,7 +138,7 @@ in {
     initContent = ''
       if [[ -r "${pkgs.zsh-powerlevel10k}/p10k-instant-prompt-finalize.zsh" ]]; then
         source "\${pkgs.zsh-powerlevel10k}/p10k-instant-prompt-finalize.zsh"
-      fi 
+      fi
       eval "$(zoxide init --cmd cd zsh)"
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -136,7 +149,7 @@ in {
     };
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake /home/lorev/nixos-config/#";
+      update = "sudo nixos-rebuild switch --flake /home/lorev/nixos-config/# && nh home switch";
       updateServer = "sudo nixos-rebuild switch --flake /home/lorev/nixos-homelab/#homelab --target-host root@homelab --verbose";
     };
     history.size = 10000;

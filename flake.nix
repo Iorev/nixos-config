@@ -65,11 +65,11 @@
         ];
       };
       homelab = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit system inputs;};
-          modules = [
-            ./nixos-server/configuration.nix
-          ];
-        };
+        specialArgs = {inherit system inputs;};
+        modules = [
+          ./nixos-server/configuration.nix
+        ];
+      };
     };
     homeConfigurations = {
       lorev = inputs.home-manager.lib.homeManagerConfiguration {

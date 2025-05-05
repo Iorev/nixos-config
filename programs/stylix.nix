@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   inputImage = ../config/wallpaper/nix-transp.png;
-  themeName = "blueish"; #https://tinted-theming.github.io/tinted-gallery/
+  themeName = "railscasts"; # https://tinted-theming.github.io/tinted-gallery/
   theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
   wallpaper = pkgs.runCommand "nix-colored.png" {} ''
     COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
