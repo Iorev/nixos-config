@@ -71,11 +71,14 @@ in {
     pkgs.xdotool
     pkgs.discord
     pkgs.newsflash
-    pkgs.tidal-hifi
     pkgs.nix-init
     pkgs.owncloud-client
     pkgs.aria2
     pkgs.vscodium
+    pkgs.preload
+    pkgs.vorta
+    pkgs.gcr
+    pkgs.seahorse
   ]; #END OF PACKAGES
 
   programs.btop.enable = true;
@@ -95,12 +98,11 @@ in {
     forwardAgent = true;
     extraConfig = ''
       Host homelab-git
-        HostName homelab.tail0e73ab.ts.net     
+        HostName homelab.tail0e73ab.ts.net
         user git
         Port 2221
         IdentityFile /home/lorev/.ssh/id_ed25519
     '';
-
   };
 
   programs.git = {
