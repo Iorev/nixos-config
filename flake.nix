@@ -35,10 +35,10 @@
       url = "github:Benexl/yt-x";
     };
 
-    #    sops-nix = {
-    #      url = "github:Mic92/sops-nix";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,7 +55,7 @@
         modules = [
           ./configuration.nix
           #inputs.stylix.nixosModules.stylix
-          #inputs.sops-nix.nixosModules.sops
+          inputs.sops-nix.nixosModules.sops
         ];
       };
       iso = nixpkgs.lib.nixosSystem {

@@ -7,22 +7,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     #./distributed-builds.nix
-    #inputs.sops-nix.nixosModules.sops
+    ./sops.nix
+    ./programs/homepage.nix
   ];
-
-  # TODO: Secret manager
-  #SOPS
-  #sops = {
-  #  defaultSopsFile = ./secrets/secrets.yaml;
-  #  defaultSopsFormat = "yaml";
-  #  age.keyFile = "/home/lorev/.config/sops/age/keys.txt";
-  #  secrets = {
-  #    factorio_token = {
-  #      owner = "lorev.name";
-  #      group = "lorev.group";
-  #    };
-  #  };
-  #};
 
   nix.settings.download-buffer-size = 524288000;
   # Bootloader.
@@ -143,6 +130,7 @@
     #my sessionVariables
     EDITOR = "nvim";
     NH_FLAKE = "/home/lorev/nixos-config";
+    FLAKE = "/home/lorev/nixos-config";
   };
 
   programs.virt-manager.enable = true;
