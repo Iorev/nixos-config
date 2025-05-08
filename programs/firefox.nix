@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  programs.firefox = {
+  programs.floorp = {
     enable = true;
     profiles.lorev = {
       search = {

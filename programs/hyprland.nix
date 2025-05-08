@@ -70,7 +70,7 @@
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$menu" = "rofi -show drun";
-      "$browser" = "firefox";
+      "$browser" = "floorp";
       bind = [
         "$mainMod, Return, exec, $terminal"
         "$mainMod, Q, killactive"

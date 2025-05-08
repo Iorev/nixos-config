@@ -18,8 +18,8 @@ in {
       terminal = 0.95;
     };
     polarity = "dark";
-    targets.firefox.profileNames = ["lorev"];
-    targets.firefox.colorTheme.enable = true;
+    targets.floorp.profileNames = ["lorev"];
+    targets.floorp.colorTheme.enable = true;
 
     cursor = {
       package = pkgs.whitesur-cursors;
