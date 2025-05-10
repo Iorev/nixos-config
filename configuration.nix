@@ -11,51 +11,74 @@
     ./programs/homepage.nix
   ];
 
-  nix.settings.download-buffer-size = 524288000;
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "XPSnixos"; # Define your hostname.
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  # Enable network manager applet
-  programs.nm-applet.enable = true;
+  networking = {
+    hostName = "XPSnixos"; # Define your hostname.
+    networkmanager.enable = true;
+    firewall = {
+      allowedTCPPorts = [8080 8081 5829 8096];
+      #allowedUDPPorts = [ ... ];
+    };
+  };
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-    icu
-  ];
+  nix.settings = {
+    download-buffer-size = 524288000;
+    experimental-features = ["nix-command" "flakes"];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
+  # Enable network manager applet
+  programs = {
+    nm-applet.enable = true;
+
+    nix-ld.enable = true;
+    nix-ld.libraries = with pkgs; [
+      # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
+      icu
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "it_IT.UTF-8";
-    LC_IDENTIFICATION = "it_IT.UTF-8";
-    LC_MEASUREMENT = "it_IT.UTF-8";
-    LC_MONETARY = "it_IT.UTF-8";
-    LC_NAME = "it_IT.UTF-8";
-    LC_NUMERIC = "it_IT.UTF-8";
-    LC_PAPER = "it_IT.UTF-8";
-    LC_TELEPHONE = "it_IT.UTF-8";
-    LC_TIME = "it_IT.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "it_IT.UTF-8";
+      LC_IDENTIFICATION = "it_IT.UTF-8";
+      LC_MEASUREMENT = "it_IT.UTF-8";
+      LC_MONETARY = "it_IT.UTF-8";
+      LC_NAME = "it_IT.UTF-8";
+      LC_NUMERIC = "it_IT.UTF-8";
+      LC_PAPER = "it_IT.UTF-8";
+      LC_TELEPHONE = "it_IT.UTF-8";
+      LC_TIME = "it_IT.UTF-8";
+    };
   };
 
-  # Enable the X11 windowing system.
   services = {
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
     fprintd = {
       enable = true;
       tod = {
@@ -90,16 +113,7 @@
   # Configure console keymap
   console.keyMap = "it2";
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   users.users.lorev = {
     isNormalUser = true;
     description = "Lorenzo Pasqui";
@@ -183,6 +197,11 @@
   ];
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman thunar-bare thunar-vcs-plugin];
+  };
+
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
@@ -193,8 +212,6 @@
   programs.steam.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8080 8081 5829 8096];
-  # networking.firewall.allowedUDPPorts = [ ... ];
   services.kanata = {
     enable = false;
     keyboards = {

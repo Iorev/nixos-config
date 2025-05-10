@@ -9,7 +9,7 @@
     };
 
     nixvim = {
-      url = "/home/lorev/nixvim/";
+      url = "github:Iorev/nixvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,16 +39,20 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
-    self,
     nixpkgs,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    formatter.${system} = inputs.alejandra.defaultPackage.${system};
     nixosConfigurations = {
       XPSnixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit system inputs;};
@@ -56,6 +60,17 @@
           ./configuration.nix
           #inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager= {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.lorev = import ./home.nix;
+              extraSpecialArgs = {
+                inherit system inputs;
+                };
+              };
+            }
         ];
       };
       iso = nixpkgs.lib.nixosSystem {
@@ -71,24 +86,24 @@
         ];
       };
     };
-    homeConfigurations = {
-      lorev = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              # set the flake package
-              package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-              portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-            };
-          }
-          inputs.stylix.homeManagerModules.stylix
-          #inputs.sops-nix.homeManagerModules.sops
-          ./home.nix
-        ];
-      };
-    };
+#   homeConfigurations = {
+#     lorev = inputs.home-manager.lib.homeManagerConfiguration {
+#       inherit pkgs;
+#       extraSpecialArgs = {inherit inputs;};
+#       modules = [
+#         {
+#           wayland.windowManager.hyprland = {
+#             enable = true;
+#             # set the flake package
+#             package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+#             portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+#           };
+#         }
+#         inputs.stylix.homeManagerModules.stylix
+#         #inputs.sops-nix.homeManagerModules.sops
+#         ./home.nix
+#       ];
+#     };
+#   };
   };
 }
