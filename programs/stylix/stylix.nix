@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inputImage = ../config/wallpaper/nix-transp.png;
+  inputImage = ../../config/wallpaper/nix-transp.png;
   # https://tinted-theming.github.io/tinted-gallery/
   themeName = "everforest-dark-hard"; 
   theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
