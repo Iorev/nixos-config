@@ -1,16 +1,6 @@
-{pkgs, ...}: let
-  inputImage = ../config/wallpaper/nix-transp.png;
-  themeName = "railscasts"; # https://tinted-theming.github.io/tinted-gallery/
-  theme = "${pkgs.base16-schemes}/share/themes/${themeName}.yaml";
-  wallpaper = pkgs.runCommand "nix-colored.png" {} ''
-    COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
-    ${pkgs.imagemagick}/bin/convert -background $COLOR -flatten ${inputImage} $out
-  '';
-in {
+{pkgs, ...}:
+{
   stylix = {
-    enable = true;
-    image = wallpaper;
-    base16Scheme = theme;
     opacity = {
       applications = 0.1; #This doesn't seem to work
       desktop = 0.75;
