@@ -8,7 +8,6 @@
   nixvim-package = inputs.nixvim.packages.${system}.full;
   extended-nixvim = nixvim-package.extend config.lib.stylix.nixvim.config;
 in {
-  nixpkgs.config.allowUnfree = true;
   home = {
     username = "lorev";
     homeDirectory = "/home/lorev";
@@ -134,7 +133,7 @@ in {
         )
       '';
     };
-    
+
     bash = {
       enable = true;
       enableCompletion = true;

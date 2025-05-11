@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   sops.secrets = {
     "homepage/ha/key" = {};
     "homepage/ha/url" = {};
@@ -115,7 +112,7 @@
                 mappings = [
                   {
                     field = "data.repoList.0.currentUsage";
-                    label = "Gitea";
+                    label = "Immich";
                     format = "bytes";
                     scale = 1000000;
                     additionalField = {
@@ -127,7 +124,7 @@
                   }
                   {
                     field = "data.repoList.1.currentUsage";
-                    label = "Owncloud";
+                    label = "Gitea";
                     format = "bytes";
                     scale = 1000000;
                     additionalField = {
@@ -139,7 +136,7 @@
                   }
                   {
                     field = "data.repoList.2.currentUsage";
-                    label = "Immich";
+                    label = "Owncloud";
                     format = "bytes";
                     scale = 1000000;
                     additionalField = {
