@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nh # nix-helper (wrapper per nixos-rebuild + gc + flake)
     nix-index # indicizza comandi nei pacchetti

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   tex = pkgs.texlive.combine {
     inherit
       (pkgs.texlive)
