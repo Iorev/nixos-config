@@ -52,11 +52,12 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
+    themeName = "mocha";
   in {
     formatter.${system} = inputs.alejandra.defaultPackage.${system};
     nixosConfigurations = {
       XPSnixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit system inputs;};
+        specialArgs = {inherit system inputs themeName;};
         modules = [
           ./configuration.nix
           inputs.sops-nix.nixosModules.sops
@@ -68,7 +69,7 @@
               useUserPackages = true;
               users.lorev = import ./home.nix;
               extraSpecialArgs = {
-                inherit system inputs;
+                inherit system inputs themeName;
               };
             };
           }
@@ -77,9 +78,8 @@
 
       homelab = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs themeName;};
         modules = [
-          ./programs/stylix/stylix.nix
           inputs.homelab.nixosModules.homelab
           inputs.sops-nix.nixosModules.sops
           inputs.stylix.nixosModules.stylix

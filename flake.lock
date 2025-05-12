@@ -1634,8 +1634,8 @@
         "xpsnixos": "xpsnixos"
       },
       "locked": {
-        "lastModified": 1746960156,
-        "narHash": "sha256-bUHchF1qcBV2eycgaxMaNRdRpylPZBl4CfkpCgdiIU8=",
+        "lastModified": 1747006204,
+        "narHash": "sha256-LZn/WV2256OqpVmZGJt6v+y55G5ao2Oe07twWP5qyQk=",
         "path": "/home/lorev/nixos-homelab",
         "type": "path"
       },
